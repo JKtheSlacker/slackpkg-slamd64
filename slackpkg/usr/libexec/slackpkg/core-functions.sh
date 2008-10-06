@@ -170,7 +170,7 @@ with slackpkg.\n"
 		sleep 5
 	fi 
 
-	# Check if the Slackware GPG key are found in the system
+	# Check if the Slamd64 GPG key are found in the system
 	#                                                       
 	GPGFIRSTTIME="$(gpg --list-keys \"$SLACKKEY\" 2>/dev/null \
 			| grep -c "$SLACKKEY")"

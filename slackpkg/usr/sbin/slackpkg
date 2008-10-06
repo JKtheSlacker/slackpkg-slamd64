@@ -21,7 +21,8 @@
 # Roberto F. Batista (aka PiterPunk) piterpk@terra.com.br
 # Evaldo Gardenali (aka UdontKnow) evaldogardenali@fasternet.com.br
 #
-
+# Modified for Slamd64 by
+# JK Wood (aka jkwood) joshuakwood@gmail.com
 
 #========================================================================
 #
@@ -30,16 +31,16 @@
 
 #
 # CONF = configuration directory
-# SOURCE = A mirror of Slackware. Source can be sett by editing $CONF/mirrors
+# SOURCE = A mirror of Slamd64. Source can be sett by editing $CONF/mirrors
 #
 VERSION=2.70.4
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
-SLACKWARE_VERSION=$(cat /etc/slackware-version | cut -f2 -d\ )
-SLACKKEY="Slackware Linux Project <security@slackware.com>"
+SLACKWARE_VERSION=$(cat /etc/slamd64-version | cut -f2 -d\ )
+SLACKKEY="Frederick Emmott <mail@fredemmott.co.uk>"
 CONF=/etc/slackpkg
 SOURCE=$(grep -e "^\([a-z]\)" $CONF/mirrors)
 . $CONF/slackpkg.conf
-ARCH=${ARCH:-i[3456]86}
+ARCH=${ARCH:-x86_64}
 LOCAL=0
 KERNELMD5=$(md5sum /boot/vmlinuz 2>/dev/null)
 TMPDIR=$(mktemp -p /tmp -d slackpkg.XXXXXX 2>/dev/null || echo "FAILED")
@@ -221,7 +222,7 @@ done
 case "$CMD" in
 	"update")
 		# If you are using "slackpkg update gpg" OR the system
-		# doesn't have Slackware GPG key, download and install
+		# doesn't have Slamd64 GPG key, download and install
 		# the key
 		#
 		if [ "$UPARG" = "gpg" ] || [ "$GPGFIRSTTIME" = "0" ]; then
@@ -235,7 +236,7 @@ case "$CMD" in
 			getfile /GPG-KEY $TMPDIR/gpgkey 
 			gpg --yes --batch --delete-key "$SLACKKEY" &>/dev/null
 			gpg --import $TMPDIR/gpgkey &>/dev/null && \
-			echo -e "\t\t\tSlackware Linux Project's GPG key added"
+			echo -e "\t\t\tSlamd64 Linux Project's GPG key added"
 			if [ "$UPARG" = "gpg" ]; then
 				cleanup
 			fi

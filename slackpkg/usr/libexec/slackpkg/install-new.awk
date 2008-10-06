@@ -1,4 +1,4 @@
-/^(a|ap|d|e|f|k|kde|kdei|l|n|t|tcl|x|xap|y)\/([a-zA-Z0-9_\+]+)-.*:.* ([Ad]dded|[Ss]plit|[Rr]enamed|[Mm]oved|[Nn]ame [Cc]hange|NAME CHANGE).*/ {
+/^(a|ap|c|d|e|f|k|kde|kdei|l|n|t|tcl|x|xap|y)\/([a-zA-Z0-9_\+]+)-.*:.* ([Ad]dded|[Ss]plit|[Rr]enamed|[Mm]oved|[Nn]ame [Cc]hange|NAME CHANGE).*/ {
 	INPUT=$1
 	fs=FS
 	FS="/" ; OFS="/"
@@ -12,7 +12,7 @@
 	print $0
 }
 
-/^(a|ap|d|e|f|k|kde|kdei|l|n|t|tcl|x|xap|y)\/([a-zA-Z0-9_\+]+)-.*: *$/ {
+/^(a|ap|c|d|e|f|k|kde|kdei|l|n|t|tcl|x|xap|y)\/([a-zA-Z0-9_\+]+)-.*: *$/ {
 	INPUT=$1
 	fs=FS
 	FS="/" ; OFS="/"
