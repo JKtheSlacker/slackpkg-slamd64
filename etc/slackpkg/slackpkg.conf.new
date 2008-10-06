@@ -1,0 +1,113 @@
+#
+# slackpkg.conf - Configuration for SlackPkg
+# v2.2
+#
+
+#
+# SlackPkg - An Automated packaging tool for Slackware Linux
+# Copyright (C) 2003,2004,2005,2006,2007 Roberto F. Batista, Evaldo Gardenali
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# Project Page: http://slackpkg.org/
+# Roberto F. Batista (aka PiterPunk) piterpk@terra.com.br
+# Evaldo Gardenali (aka UdontKnow) evaldogardenali@fasternet.com.br
+#
+
+# For configuration options that have only two states, possible values are
+# either "on" or "off"
+
+# Remember, the only official Slackware ports are x86 and s390, and
+# slackpkg developers don't have s390 boxes for testing.  If you are
+# testing/using in other archs and have suggestions or patches, 
+# please let me know (piterpk@terra.com.br)
+#
+# Select the architecture of your system
+# x86 (the main arch for Slackware)
+ARCH=[i]*[3456x]86
+# x86_64 (Slamd64 and BlueWhite64)
+#ARCH=x86_64 
+# PowerPC (Slackintosh)
+#ARCH=powerpc
+# S/390 (Slack/390)
+#ARCH=s390
+
+# Downloaded files will be in directory below:
+TEMP=/var/cache/packages
+
+# Package lists, file lists and others will be at WORKDIR:
+WORKDIR=/var/lib/slackpkg
+
+# Special options for wget (default is WGETFLAGS="--passive-ftp")
+WGETFLAGS="--passive-ftp"
+
+# If DELALL is "on", all downloaded files will be removed after install.
+DELALL=on
+
+# If CHECKPKG is "on", the system will check the md5sums of all packages before
+# install/upgrade/reinstall is performed.
+CHECKPKG=on
+
+# If CHECKGPG is "on", the system will verify the GPG signature of each package
+# before install/upgrade/reinstall is performed.
+CHECKGPG=on
+
+# The lines below will set the download priority. 
+# Default values: /patches /slackware /extra /pasture /testing
+FIRST=patches
+SECOND=slackware
+THIRD=extra
+FOURTH=pasture
+FIFTH=testing
+
+# The default MAIN is "slackware", but some derived distros use other
+# names as the main directory. Of course, MAIN needs to be listed in
+# the download priority directories
+MAIN=slackware
+
+# Enables (on) or disables (off) slackpkg's post-installation features, such
+# as checking for new (*.new) configuration files and new kernel images, and
+# prompts you for what it should do.  Default=on
+POSTINST=on
+
+# The ONOFF variable sets the initial behavior of the dialog interface.
+# If you set this to "on" then all packages will be selected by default.
+# If you prefer the opposite option (all unchecked), then set this to "off".
+ONOFF=on
+
+# If this variable is set to "on", all files will be downloaded before the
+# requested operation (install or upgrade) is performed.   If set to "off",
+# then the files will be downloaded and the operation (install/upgrade)
+# performed one by one.  Default=off
+DOWNLOAD_ALL=off
+
+# Enables (on) or disables (off) the dialog interface in slackpkg.  Default=on
+DIALOG=on
+
+# Enables (on) or disable (off) the non-interactive mode. Using that,
+# slackpkg will run without ask anything to user, and answering all
+# questions with DEFAULT_ANSWER. If you do some upgrade using this mode,
+# you'll need to run "slackpkg new-config" later, to find and merge
+# .new files.
+BATCH=off
+
+# Default answer to slackpkg questions. Can be "y" or "n".
+DEFAULT_ANSWER=n
+
+#
+# The MIRROR is set from /etc/slackpkg/mirrors
+# You only need to uncomment the selected mirror. 
+# Uncomment one mirror only.
+#

@@ -1,0 +1,710 @@
+# mirrors - List of Slackware Linux mirrors.
+#
+# SlackPkg - An Automated packaging tool for Slackware Linux
+# Copyright (C) 2003,2004,2005,2006,2007 Roberto F. Batista, Evaldo Gardenali
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# Project Page: http://slackpkg.org/
+# Roberto F. Batista (aka PiterPunk) piterpk@terra.com.br
+# Evaldo Gardenali (aka UdontKnow) evaldogardenali@fasternet.com.br
+#
+# END OF LEGAL NOTICE
+#
+#
+# You only need to select one mirror and uncomment them. Please,
+# ONLY ONE mirror can be uncommented each time.
+#
+# In this file you can find mirrors for slackware 12.1, current
+# and 12.0 (in this order).
+#
+# The mirrors file is kept synced with the official slackware 
+# mirrors. If you find any incorrect mirror, please report it 
+# to fizban <fizban@slackware.com>
+#
+
+#----------------------------------------------------------------
+# Local CD drive
+#----------------------------------------------------------------
+#cdrom://mnt/cdrom/
+
+#----------------------------------------------------------------
+# Slackware 12.1 
+#----------------------------------------------------------------
+#Australia, 155Mbit
+#http://ftp.planetmirror.com/pub/slackware/slackware-12.1/
+#ftp://ftp.planetmirror.com/pub/slackware/slackware-12.1/
+#Australia, 250Mbit
+#http://mirror.pacific.net.au/linux/slackware/slackware-12.1/
+#ftp://mirror.pacific.net.au/linux/slackware/slackware-12.1/
+#Australia, 45mbit, 100Mbit
+#ftp://mirror.veridas.net/pub/slackware/slackware-12.1/
+#Austria, 100Mbit
+#ftp://ftp.slackware.at/slackware-12.1/
+#Austria, 
+#http://gd.tuwien.ac.at/opsys/linux/slackware/slackware-12.1/
+#ftp://gd.tuwien.ac.at/opsys/linux/slackware/slackware-12.1/
+#Austria, 4Mbit
+#http://slackware.itsoft.at/slackware/slackware-12.1/
+#ftp://slackware.itsoft.at/slackware/slackware-12.1/
+#Belgium, 2x1Gbit
+#http://ftp.belnet.be/packages/slackware/slackware-12.1/
+#ftp://ftp.belnet.be/packages/slackware/slackware-12.1/
+#Belgium, 1Gbit
+#http://ftp.scarlet.be/pub/slackware/slackware-12.1/
+#ftp://ftp.scarlet.be/pub/slackware/slackware-12.1/
+#Belgium, 100Mbit
+#ftp://gaosu.rave.org/pub/linux/slackware/slackware-12.1/
+#Brasil, 150Mbit
+#ftp://ftp.slackware-brasil.com.br/slackware-12.1/
+#Brasil, 50Mbit
+#http://mirror.slacklife.com.br/slackware-12.1/
+#Bulgaria, 20Mbit, 100Mbit
+#http://mirrors.evrocom.net/slackware/slackware-12.1/
+#ftp://mirrors.evrocom.net/slackware/slackware-12.1/
+#Bulgaria, 5Mbit
+#http://mirrors.unixsol.org/slackware/slackware-12.1/
+#ftp://mirrors.unixsol.org/slackware/slackware-12.1/
+#Bulgaria, 100Mbit
+#http://slackware.bgbits.com/slackware/slackware-12.1/
+#Canada, 100Mbit
+#http://gulus.usherbrooke.ca/pub/distro/slackware/slackware-12.1/
+#Canada, 10Mbit
+#http://ncart.scs.ryerson.ca/pub/slackware/slackware-12.1/
+#ftp://ncart.scs.ryerson.ca/pub/slackware/slackware-12.1/
+#Croatia, 100Mbit
+#http://ftp.nymphomatic.org/mirror/slackware/slackware-12.1/
+#ftp://ftp.nymphomatic.org/mirror/slackware/slackware-12.1/
+#Czech Republic, 1Gbit
+#http://ftp.linux.cz/pub/linux/slackware/slackware-12.1/
+#ftp://ftp.linux.cz/pub/linux/slackware/slackware-12.1/
+#Czech Republic, 100Mbit
+#ftp://ftp.sh.cvut.cz/MIRRORS/slackware/slackware-12.1/
+#Czech Republic, 100Mbit
+#http://ftp.slackware.cz/slackware/slackware-12.1/
+#ftp://ftp.slackware.cz/slackware/slackware-12.1/
+#Czech Republic, 15Mbit
+#ftp://slackware:@ftp.unob.cz/slackware-12.1/
+#Denmark, 100Mbit
+#http://mirrors.dotsrc.org/slackware/slackware-12.1/
+#ftp://mirrors.dotsrc.org/slackware/slackware-12.1/
+#Finland, 
+#ftp://ftp.funet.fi/pub/mirrors/ftp.slackware.com/pub/slackware-12.1/
+#Finland, 10Mbps
+#ftp://ftp.openbsd.fi/slackware/slackware-12.1/
+#Finland, 100Mbit
+#ftp://elektroni.phys.tut.fi/slackware-12.1/
+#France, 1Gbit
+#http://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-12.1/
+#ftp://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-12.1/
+#Germany, 
+#ftp://sunsite.informatik.rwth-aachen.de/pub/Linux/slackware/slackware-12.1/
+#Germany, 1Gbit
+#http://ftp.gwdg.de/pub/linux/slackware/slackware-12.1/
+#ftp://ftp.gwdg.de/pub/linux/slackware/slackware-12.1/
+#Germany, 1Gbit
+#ftp://ftp.wh8.tu-dresden.de/pub/linux/distributions/slackware/slackware-12.1/
+#Germany, 622Mbit
+#ftp://ftp.fu-berlin.de/unix/linux/mirrors/slackware/slackware-12.1/
+#Greece, 1Gbit
+#http://ftp.ntua.gr/pub/linux/slackware/slackware-12.1/
+#ftp://ftp.ntua.gr/pub/linux/slackware/slackware-12.1/
+#Greece, 22Mbit
+#ftp://ftp.uoi.gr/mirror/OS/slackware/slackware-12.1/
+#Hong Kong, 
+#ftp://ftp.cs.cuhk.hk/pub/slackware/slackware-12.1/
+#Indonesia, 2Mbit, 100Mbit
+#http://slackware.mirror.gudangopensource.com/slackware-12.1/
+#Ireland, 1Gbit
+#http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/
+#ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/
+#Italy, 1*STM1, 1*E3, 2*E1
+#ftp://ftp.eutelia.it/pub/Slackware_Mirror/slackware-12.1/
+#Italy, 
+#ftp://ftp.unina.it/pub/linux/distributions/slackware/slackware-12.1/
+#Japan, 1Gbit
+#http://ftp.riken.jp/linux/slackware/slackware-12.1/
+#ftp://ftp.riken.jp/linux/slackware/slackware-12.1/
+#Japan, 1Gbit
+#ftp://ftp.nara.wide.ad.jp/1/Linux/Slackware/slackware-12.1/
+#Korea, 155Mbit
+#ftp://ftp.kreonet.re.kr/pub/linux/slackware/slackware-12.1/
+#Latvia, 100Mbit
+#ftp://edge.deac.lv/pub/slackware/slackware-12.1/
+#Lithuania, 10Mbit
+#ftp://ftp.slackware.lt/pub/Linux/slackware/slackware-12.1/
+#Netherlands, 100Mbit
+#http://ftp.bit.nl/mirror/slackware/slackware-12.1/
+#ftp://ftp.bit.nl/mirror/slackware/slackware-12.1/
+#Netherlands, 10Mbit
+#ftp://sharon.esrac.ele.tue.nl/pub/slackware/slackware-12.1/
+#Netherlands, 100Mbit
+#ftp://ftp.nluug.nl/pub/os/Linux/distr/slackware/slackware-12.1/
+#Netherlands, 155Mbit
+#ftp://dl.xs4all.nl/pub/mirror/slackware/slackware-12.1/
+#Norway, 1Gbit
+#ftp://ftp.slackware.no/pub/linux/slackware/slackware-12.1/
+#Poland, 1Gbit
+#http://ftp.man.poznan.pl/pub/linux/slackware/slackware-12.1/
+#ftp://ftp.man.poznan.pl/pub/linux/slackware/slackware-12.1/
+#Poland, 100Mbit
+#ftp://ftp.man.szczecin.pl/pub/Linux/slackware/slackware-12.1/
+#Poland, 100Mbit
+#ftp://sunsite.icm.edu.pl/pub/Linux/slackware/slackware-12.1/
+#Portugal, 10Mbit
+#http://darkstar.ist.utl.pt/pub/slackware/slackware-12.1/
+#ftp://darkstar.ist.utl.pt/pub/slackware/slackware-12.1/
+#Portugal, 100Mbit
+#ftp://ftp.fe.up.pt/disk1/ftp.slackware.com/pub/slackware/slackware-12.1/
+#Republic of Moldova, 512kb/s
+#http://ftp.lug.md/pub/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/
+#ftp://ftp.lug.md/pub/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/
+#Romania, 100Mbit, 2Mbit
+#ftp://ftp.evolva.ro/linux/slackware/slackware-12.1/
+#Romania, 100Mbit, 2Mbit
+#http://serghei.net/linux/slackware/slackware-12.1/
+#Romania, 34Mbit
+#http://ftp.iasi.roedu.net/mirrors/ftp.slackware.com/slackware-12.1/
+#ftp://ftp.iasi.roedu.net/mirrors/ftp.slackware.com/slackware-12.1/
+#Romania, 5Mbit
+#ftp://ftp.rdsbv.ro/mirrors/slackware/slackware-12.1/
+#Russia, 100Mbit
+#ftp://ftp.chg.ru/pub/Linux/Slackware/slackware-12.1/
+#Russia, 100Mbit
+#http://slackware.perespim.ru/pub/slackware-12.1/
+#ftp://slackware.perespim.ru/pub/slackware-12.1/
+#Russia, 100Mbit
+#ftp://slackware.su29.ru/slackware-12.1/
+#Russia, 100Mbit
+#http://mirror.aiya.ruslackware-12.1/
+#ftp://mirror.aiya.ruslackware-12.1/
+#Serbia, 2x34Mbit
+#http://mirror.etf.bg.ac.yu/slackware/slackware-12.1/
+#ftp://mirror.etf.bg.ac.yu/slackware/slackware-12.1/
+#Slovakia, 100Mbit
+#ftp://ftp.bind.eu.org/pub/linux/slackware/slackware-12.1/
+#Slovakia, 100Mbit
+#ftp://ftp.pieskovisko.sk/pub/slackware/slackware-12.1/
+#South Africa, Multiple 45Mbit
+#ftp://ftp.is.co.za/mirror/ftp.slackware.com/pub/slackware/slackware-12.1/
+#Spain, 2x100Mbit
+#ftp://ftp.red.telefonica-wholesale.net/slackware/slackware-12.1/
+#Spain, 
+#ftp://ftp.etse.urv.es/pub/linux/slackware/slackware-12.1/
+#Sweden, 155Mbit
+#ftp://ftp.sunet.se/pub/Linux/distributions/slackware/slackware-12.1/
+#Sweden, 100Mbit
+#ftp://mirror.pudas.net/slackware/slackware-12.1/
+#Switzerland, 1Gbit
+#http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/
+#Taiwan, 1Gbit
+#http://ftp.cgu.edu.tw/Linux/Slackware/slackware-12.1/
+#ftp://ftp.cgu.edu.tw/Linux/Slackware/slackware-12.1/
+#Taiwan, 1Gbit
+#http://ftp.isu.edu.tw/pub/Linux/Slackware/slackware-12.1/
+#ftp://ftp.isu.edu.tw/pub/Linux/Slackware/slackware-12.1/
+#UK, 1Gbit
+#ftp://ftp.mirror.ac.uk/sites/ftp.slackware.com/slackware-12.1/
+#UK, 
+#http://ftp.mirrorservice.org/sites/ftp.slackware.com/pub/slackware/slackware-12.1/
+#ftp://ftp.mirrorservice.org/sites/ftp.slackware.com/pub/slackware/slackware-12.1/
+#UK, STM4
+#ftp://mirrors.blueyonder.co.uk/sites/ftp.slackware.com/slackware-12.1/
+#UK, 1Gbit
+#http://www.mirror.ac.uk/mirror/ftp.slackware.com/slackware-12.1/
+#USA, 155Mbps
+#http://carroll.cac.psu.edu/pub/linux/distributions/slackware/slackware-12.1/
+#ftp://carroll.cac.psu.edu/pub/linux/distributions/slackware/slackware-12.1/
+#USA, 
+#ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.1/
+#USA, 
+#ftp://ftp-linux.cc.gatech.edu/pub/slackware/slackware-12.1/
+#USA, 100Mbit
+#ftp://ftp.ale.org/pub/mirrors/slackware/slackware-12.1/
+#USA, 2xT3
+#ftp://ftp.cerias.purdue.edu/pub/os/slackware/slackware-12.1/
+#USA, 100Mbit
+#ftp://ftp.cs.stevens-tech.edu/pub/Linux/distributions/slackware/slackware-12.1/
+#USA, 1Gbit
+#http://lmlinux.com/distros/slackware/slackware-12.1/
+#USA, 100Mbit
+#http://mirror.mhvlug.org/slackware/slackware-12.1/
+#USA, OC-48
+#http://mirrors.usc.edu/pub/linux/distributions/slackware/slackware-12.1/
+#ftp://mirrors.usc.edu/pub/linux/distributions/slackware/slackware-12.1/
+#USA, 1Gbit
+#http://slackware.cs.utah.edu/pub/slackware/slackware-12.1/
+#ftp://slackware.cs.utah.edu/pub/slackware/slackware-12.1/
+#USA, 1Mbit
+#ftp://slackware.ext3networking.com/pub/slackware/slackware-12.1/
+#USA, GigE
+#http://mirrors.easynews.com/linux/slackware/slackware-12.1/
+#USA, x-OC12
+#http://slackware.mirrors.pair.com/slackware-12.1/
+#ftp://slackware.mirrors.pair.com/slackware-12.1/
+#USA, 1Gbit
+#http://slackware.mirrors.tds.net/pub/slackware/slackware-12.1/
+#ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.1/
+#USA, 10Mbit
+#ftp://ftp.slackware.com/pub/slackware/slackware-12.1/
+#USA, 45Mbit
+#http://slackware.oregonstate.edu/pub/slackware/slackware-12.1/
+#ftp://slackware.oregonstate.edu/pub/slackware/slackware-12.1/
+
+#----------------------------------------------------------------
+# Slackware current 
+#----------------------------------------------------------------
+#Australia, 155Mbit
+#http://ftp.planetmirror.com/pub/slackware/slackware-current/
+#ftp://ftp.planetmirror.com/pub/slackware/slackware-current/
+#Australia, 250Mbit
+#http://mirror.pacific.net.au/linux/slackware/slackware-current/
+#ftp://mirror.pacific.net.au/linux/slackware/slackware-current/
+#Australia, 45mbit, 100Mbit
+#ftp://mirror.veridas.net/pub/slackware/slackware-current/
+#Austria, 100Mbit
+#ftp://ftp.slackware.at/slackware-current/
+#Austria, 
+#http://gd.tuwien.ac.at/opsys/linux/slackware/slackware-current/
+#ftp://gd.tuwien.ac.at/opsys/linux/slackware/slackware-current/
+#Austria, 4Mbit
+#http://slackware.itsoft.at/slackware/slackware-current/
+#ftp://slackware.itsoft.at/slackware/slackware-current/
+#Belgium, 2x1Gbit
+#http://ftp.belnet.be/packages/slackware/slackware-current/
+#ftp://ftp.belnet.be/packages/slackware/slackware-current/
+#Belgium, 1Gbit
+#http://ftp.scarlet.be/pub/slackware/slackware-current/
+#ftp://ftp.scarlet.be/pub/slackware/slackware-current/
+#Belgium, 100Mbit
+#ftp://gaosu.rave.org/pub/linux/slackware/slackware-current/
+#Brasil, 150Mbit
+#ftp://ftp.slackware-brasil.com.br/slackware-current/
+#Brasil, 50Mbit
+#http://mirror.slacklife.com.br/slackware-current/
+#Bulgaria, 20Mbit, 100Mbit
+#http://mirrors.evrocom.net/slackware/slackware-current/
+#ftp://mirrors.evrocom.net/slackware/slackware-current/
+#Bulgaria, 5Mbit
+#http://mirrors.unixsol.org/slackware/slackware-current/
+#ftp://mirrors.unixsol.org/slackware/slackware-current/
+#Bulgaria, 100Mbit
+#http://slackware.bgbits.com/slackware/slackware-current/
+#Canada, 100Mbit
+#http://gulus.usherbrooke.ca/pub/distro/slackware/slackware-current/
+#Canada, 10Mbit
+#http://ncart.scs.ryerson.ca/pub/slackware/slackware-current/
+#ftp://ncart.scs.ryerson.ca/pub/slackware/slackware-current/
+#Croatia, 100Mbit
+#http://ftp.nymphomatic.org/mirror/slackware/slackware-current/
+#ftp://ftp.nymphomatic.org/mirror/slackware/slackware-current/
+#Czech Republic, 1Gbit
+#http://ftp.linux.cz/pub/linux/slackware/slackware-current/
+#ftp://ftp.linux.cz/pub/linux/slackware/slackware-current/
+#Czech Republic, 100Mbit
+#ftp://ftp.sh.cvut.cz/MIRRORS/slackware/slackware-current/
+#Czech Republic, 100Mbit
+#http://ftp.slackware.cz/slackware/slackware-current/
+#ftp://ftp.slackware.cz/slackware/slackware-current/
+#Czech Republic, 15Mbit
+#ftp://slackware:@ftp.unob.cz/slackware-current/
+#Denmark, 100Mbit
+#http://mirrors.dotsrc.org/slackware/slackware-current/
+#ftp://mirrors.dotsrc.org/slackware/slackware-current/
+#Finland, 
+#ftp://ftp.funet.fi/pub/mirrors/ftp.slackware.com/pub/slackware-current/
+#Finland, 10Mbps
+#ftp://ftp.openbsd.fi/slackware/slackware-current/
+#Finland, 100Mbit
+#ftp://elektroni.phys.tut.fi/slackware-current/
+#France, 1Gbit
+#http://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-current/
+#ftp://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-current/
+#Germany, 
+#ftp://sunsite.informatik.rwth-aachen.de/pub/Linux/slackware/slackware-current/
+#Germany, 1Gbit
+#http://ftp.gwdg.de/pub/linux/slackware/slackware-current/
+#ftp://ftp.gwdg.de/pub/linux/slackware/slackware-current/
+#Germany, 1Gbit
+#ftp://ftp.wh8.tu-dresden.de/pub/linux/distributions/slackware/slackware-current/
+#Germany, 622Mbit
+#ftp://ftp.fu-berlin.de/unix/linux/mirrors/slackware/slackware-current/
+#Greece, 1Gbit
+#http://ftp.ntua.gr/pub/linux/slackware/slackware-current/
+#ftp://ftp.ntua.gr/pub/linux/slackware/slackware-current/
+#Greece, 22Mbit
+#ftp://ftp.uoi.gr/mirror/OS/slackware/slackware-current/
+#Hong Kong, 
+#ftp://ftp.cs.cuhk.hk/pub/slackware/slackware-current/
+#Indonesia, 2Mbit, 100Mbit
+#http://slackware.mirror.gudangopensource.com/slackware-current/
+#Ireland, 1Gbit
+#http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-current/
+#ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-current/
+#Italy, 1*STM1, 1*E3, 2*E1
+#ftp://ftp.eutelia.it/pub/Slackware_Mirror/slackware-current/
+#Italy, 
+#ftp://ftp.unina.it/pub/linux/distributions/slackware/slackware-current/
+#Japan, 1Gbit
+#http://ftp.riken.jp/linux/slackware/slackware-current/
+#ftp://ftp.riken.jp/linux/slackware/slackware-current/
+#Japan, 1Gbit
+#ftp://ftp.nara.wide.ad.jp/1/Linux/Slackware/slackware-current/
+#Korea, 155Mbit
+#ftp://ftp.kreonet.re.kr/pub/linux/slackware/slackware-current/
+#Latvia, 100Mbit
+#ftp://edge.deac.lv/pub/slackware/slackware-current/
+#Lithuania, 10Mbit
+#ftp://ftp.slackware.lt/pub/Linux/slackware/slackware-current/
+#Netherlands, 100Mbit
+#http://ftp.bit.nl/mirror/slackware/slackware-current/
+#ftp://ftp.bit.nl/mirror/slackware/slackware-current/
+#Netherlands, 10Mbit
+#ftp://sharon.esrac.ele.tue.nl/pub/slackware/slackware-current/
+#Netherlands, 100Mbit
+#ftp://ftp.nluug.nl/pub/os/Linux/distr/slackware/slackware-current/
+#Netherlands, 155Mbit
+#ftp://dl.xs4all.nl/pub/mirror/slackware/slackware-current/
+#Norway, 1Gbit
+#ftp://ftp.slackware.no/pub/linux/slackware/slackware-current/
+#Poland, 1Gbit
+#http://ftp.man.poznan.pl/pub/linux/slackware/slackware-current/
+#ftp://ftp.man.poznan.pl/pub/linux/slackware/slackware-current/
+#Poland, 100Mbit
+#ftp://ftp.man.szczecin.pl/pub/Linux/slackware/slackware-current/
+#Poland, 100Mbit
+#ftp://sunsite.icm.edu.pl/pub/Linux/slackware/slackware-current/
+#Portugal, 10Mbit
+#http://darkstar.ist.utl.pt/pub/slackware/slackware-current/
+#ftp://darkstar.ist.utl.pt/pub/slackware/slackware-current/
+#Portugal, 100Mbit
+#ftp://ftp.fe.up.pt/disk1/ftp.slackware.com/pub/slackware/slackware-current/
+#Republic of Moldova, 512kb/s
+#http://ftp.lug.md/pub/mirrors/ftp.slackware.com/pub/slackware/slackware-current/
+#ftp://ftp.lug.md/pub/mirrors/ftp.slackware.com/pub/slackware/slackware-current/
+#Romania, 100Mbit, 2Mbit
+#ftp://ftp.evolva.ro/linux/slackware/slackware-current/
+#Romania, 100Mbit, 2Mbit
+#http://serghei.net/linux/slackware/slackware-current/
+#Romania, 34Mbit
+#http://ftp.iasi.roedu.net/mirrors/ftp.slackware.com/slackware-current/
+#ftp://ftp.iasi.roedu.net/mirrors/ftp.slackware.com/slackware-current/
+#Romania, 5Mbit
+#ftp://ftp.rdsbv.ro/mirrors/slackware/slackware-current/
+#Russia, 100Mbit
+#ftp://ftp.chg.ru/pub/Linux/Slackware/slackware-current/
+#Russia, 100Mbit
+#http://slackware.perespim.ru/pub/slackware-current/
+#ftp://slackware.perespim.ru/pub/slackware-current/
+#Russia, 100Mbit
+#ftp://slackware.su29.ru/slackware-current/
+#Russia, 100Mbit
+#http://mirror.aiya.ruslackware-current/
+#ftp://mirror.aiya.ruslackware-current/
+#Serbia, 2x34Mbit
+#http://mirror.etf.bg.ac.yu/slackware/slackware-current/
+#ftp://mirror.etf.bg.ac.yu/slackware/slackware-current/
+#Slovakia, 100Mbit
+#ftp://ftp.bind.eu.org/pub/linux/slackware/slackware-current/
+#Slovakia, 100Mbit
+#ftp://ftp.pieskovisko.sk/pub/slackware/slackware-current/
+#South Africa, Multiple 45Mbit
+#ftp://ftp.is.co.za/mirror/ftp.slackware.com/pub/slackware/slackware-current/
+#Spain, 2x100Mbit
+#ftp://ftp.red.telefonica-wholesale.net/slackware/slackware-current/
+#Spain, 
+#ftp://ftp.etse.urv.es/pub/linux/slackware/slackware-current/
+#Sweden, 155Mbit
+#ftp://ftp.sunet.se/pub/Linux/distributions/slackware/slackware-current/
+#Sweden, 100Mbit
+#ftp://mirror.pudas.net/slackware/slackware-current/
+#Switzerland, 1Gbit
+#http://mirror.switch.ch/ftp/mirror/slackware/slackware-current/
+#Taiwan, 1Gbit
+#http://ftp.cgu.edu.tw/Linux/Slackware/slackware-current/
+#ftp://ftp.cgu.edu.tw/Linux/Slackware/slackware-current/
+#Taiwan, 1Gbit
+#http://ftp.isu.edu.tw/pub/Linux/Slackware/slackware-current/
+#ftp://ftp.isu.edu.tw/pub/Linux/Slackware/slackware-current/
+#UK, 1Gbit
+#ftp://ftp.mirror.ac.uk/sites/ftp.slackware.com/slackware-current/
+#UK, 
+#http://ftp.mirrorservice.org/sites/ftp.slackware.com/pub/slackware/slackware-current/
+#ftp://ftp.mirrorservice.org/sites/ftp.slackware.com/pub/slackware/slackware-current/
+#UK, STM4
+#ftp://mirrors.blueyonder.co.uk/sites/ftp.slackware.com/slackware-current/
+#UK, 1Gbit
+#http://www.mirror.ac.uk/mirror/ftp.slackware.com/slackware-current/
+#USA, 155Mbps
+#http://carroll.cac.psu.edu/pub/linux/distributions/slackware/slackware-current/
+#ftp://carroll.cac.psu.edu/pub/linux/distributions/slackware/slackware-current/
+#USA, 
+#ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-current/
+#USA, 
+#ftp://ftp-linux.cc.gatech.edu/pub/slackware/slackware-current/
+#USA, 100Mbit
+#ftp://ftp.ale.org/pub/mirrors/slackware/slackware-current/
+#USA, 2xT3
+#ftp://ftp.cerias.purdue.edu/pub/os/slackware/slackware-current/
+#USA, 100Mbit
+#ftp://ftp.cs.stevens-tech.edu/pub/Linux/distributions/slackware/slackware-current/
+#USA, 1Gbit
+#http://lmlinux.com/distros/slackware/slackware-current/
+#USA, 100Mbit
+#http://mirror.mhvlug.org/slackware/slackware-current/
+#USA, OC-48
+#http://mirrors.usc.edu/pub/linux/distributions/slackware/slackware-current/
+#ftp://mirrors.usc.edu/pub/linux/distributions/slackware/slackware-current/
+#USA, 1Gbit
+#http://slackware.cs.utah.edu/pub/slackware/slackware-current/
+#ftp://slackware.cs.utah.edu/pub/slackware/slackware-current/
+#USA, 1Mbit
+#ftp://slackware.ext3networking.com/pub/slackware/slackware-current/
+#USA, GigE
+#http://mirrors.easynews.com/linux/slackware/slackware-current/
+#USA, x-OC12
+#http://slackware.mirrors.pair.com/slackware-current/
+#ftp://slackware.mirrors.pair.com/slackware-current/
+#USA, 1Gbit
+#http://slackware.mirrors.tds.net/pub/slackware/slackware-current/
+#ftp://slackware.mirrors.tds.net/pub/slackware/slackware-current/
+#USA, 10Mbit
+#ftp://ftp.slackware.com/pub/slackware/slackware-current/
+#USA, 45Mbit
+#http://slackware.oregonstate.edu/pub/slackware/slackware-current/
+#ftp://slackware.oregonstate.edu/pub/slackware/slackware-current/
+
+#----------------------------------------------------------------
+# Slackware 12.0 
+#----------------------------------------------------------------
+#Australia, 155Mbit
+#http://ftp.planetmirror.com/pub/slackware/slackware-12.0/
+#ftp://ftp.planetmirror.com/pub/slackware/slackware-12.0/
+#Australia, 250Mbit
+#http://mirror.pacific.net.au/linux/slackware/slackware-12.0/
+#ftp://mirror.pacific.net.au/linux/slackware/slackware-12.0/
+#Australia, 45mbit, 100Mbit
+#ftp://mirror.veridas.net/pub/slackware/slackware-12.0/
+#Austria, 100Mbit
+#ftp://ftp.slackware.at/slackware-12.0/
+#Austria, 
+#http://gd.tuwien.ac.at/opsys/linux/slackware/slackware-12.0/
+#ftp://gd.tuwien.ac.at/opsys/linux/slackware/slackware-12.0/
+#Austria, 4Mbit
+#http://slackware.itsoft.at/slackware/slackware-12.0/
+#ftp://slackware.itsoft.at/slackware/slackware-12.0/
+#Belgium, 2x1Gbit
+#http://ftp.belnet.be/packages/slackware/slackware-12.0/
+#ftp://ftp.belnet.be/packages/slackware/slackware-12.0/
+#Belgium, 1Gbit
+#http://ftp.scarlet.be/pub/slackware/slackware-12.0/
+#ftp://ftp.scarlet.be/pub/slackware/slackware-12.0/
+#Belgium, 100Mbit
+#ftp://gaosu.rave.org/pub/linux/slackware/slackware-12.0/
+#Brasil, 150Mbit
+#ftp://ftp.slackware-brasil.com.br/slackware-12.0/
+#Brasil, 50Mbit
+#http://mirror.slacklife.com.br/slackware-12.0/
+#Bulgaria, 20Mbit, 100Mbit
+#http://mirrors.evrocom.net/slackware/slackware-12.0/
+#ftp://mirrors.evrocom.net/slackware/slackware-12.0/
+#Bulgaria, 5Mbit
+#http://mirrors.unixsol.org/slackware/slackware-12.0/
+#ftp://mirrors.unixsol.org/slackware/slackware-12.0/
+#Bulgaria, 100Mbit
+#http://slackware.bgbits.com/slackware/slackware-12.0/
+#Canada, 100Mbit
+#http://gulus.usherbrooke.ca/pub/distro/slackware/slackware-12.0/
+#Canada, 10Mbit
+#http://ncart.scs.ryerson.ca/pub/slackware/slackware-12.0/
+#ftp://ncart.scs.ryerson.ca/pub/slackware/slackware-12.0/
+#Croatia, 100Mbit
+#http://ftp.nymphomatic.org/mirror/slackware/slackware-12.0/
+#ftp://ftp.nymphomatic.org/mirror/slackware/slackware-12.0/
+#Czech Republic, 1Gbit
+#http://ftp.linux.cz/pub/linux/slackware/slackware-12.0/
+#ftp://ftp.linux.cz/pub/linux/slackware/slackware-12.0/
+#Czech Republic, 100Mbit
+#ftp://ftp.sh.cvut.cz/MIRRORS/slackware/slackware-12.0/
+#Czech Republic, 100Mbit
+#http://ftp.slackware.cz/slackware/slackware-12.0/
+#ftp://ftp.slackware.cz/slackware/slackware-12.0/
+#Czech Republic, 15Mbit
+#ftp://slackware:@ftp.unob.cz/slackware-12.0/
+#Denmark, 100Mbit
+#http://mirrors.dotsrc.org/slackware/slackware-12.0/
+#ftp://mirrors.dotsrc.org/slackware/slackware-12.0/
+#Finland, 
+#ftp://ftp.funet.fi/pub/mirrors/ftp.slackware.com/pub/slackware-12.0/
+#Finland, 10Mbps
+#ftp://ftp.openbsd.fi/slackware/slackware-12.0/
+#Finland, 100Mbit
+#ftp://elektroni.phys.tut.fi/slackware-12.0/
+#France, 1Gbit
+#http://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-12.0/
+#ftp://ftp.lip6.fr/pub/linux/distributions/slackware/slackware-12.0/
+#Germany, 
+#ftp://sunsite.informatik.rwth-aachen.de/pub/Linux/slackware/slackware-12.0/
+#Germany, 1Gbit
+#http://ftp.gwdg.de/pub/linux/slackware/slackware-12.0/
+#ftp://ftp.gwdg.de/pub/linux/slackware/slackware-12.0/
+#Germany, 1Gbit
+#ftp://ftp.wh8.tu-dresden.de/pub/linux/distributions/slackware/slackware-12.0/
+#Germany, 622Mbit
+#ftp://ftp.fu-berlin.de/unix/linux/mirrors/slackware/slackware-12.0/
+#Greece, 1Gbit
+#http://ftp.ntua.gr/pub/linux/slackware/slackware-12.0/
+#ftp://ftp.ntua.gr/pub/linux/slackware/slackware-12.0/
+#Greece, 22Mbit
+#ftp://ftp.uoi.gr/mirror/OS/slackware/slackware-12.0/
+#Hong Kong, 
+#ftp://ftp.cs.cuhk.hk/pub/slackware/slackware-12.0/
+#Indonesia, 2Mbit, 100Mbit
+#http://slackware.mirror.gudangopensource.com/slackware-12.0/
+#Ireland, 1Gbit
+#http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.0/
+#ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.0/
+#Italy, 1*STM1, 1*E3, 2*E1
+#ftp://ftp.eutelia.it/pub/Slackware_Mirror/slackware-12.0/
+#Italy, 
+#ftp://ftp.unina.it/pub/linux/distributions/slackware/slackware-12.0/
+#Japan, 1Gbit
+#http://ftp.riken.jp/linux/slackware/slackware-12.0/
+#ftp://ftp.riken.jp/linux/slackware/slackware-12.0/
+#Japan, 1Gbit
+#ftp://ftp.nara.wide.ad.jp/1/Linux/Slackware/slackware-12.0/
+#Korea, 155Mbit
+#ftp://ftp.kreonet.re.kr/pub/linux/slackware/slackware-12.0/
+#Latvia, 100Mbit
+#ftp://edge.deac.lv/pub/slackware/slackware-12.0/
+#Lithuania, 10Mbit
+#ftp://ftp.slackware.lt/pub/Linux/slackware/slackware-12.0/
+#Netherlands, 100Mbit
+#http://ftp.bit.nl/mirror/slackware/slackware-12.0/
+#ftp://ftp.bit.nl/mirror/slackware/slackware-12.0/
+#Netherlands, 10Mbit
+#ftp://sharon.esrac.ele.tue.nl/pub/slackware/slackware-12.0/
+#Netherlands, 100Mbit
+#ftp://ftp.nluug.nl/pub/os/Linux/distr/slackware/slackware-12.0/
+#Netherlands, 155Mbit
+#ftp://dl.xs4all.nl/pub/mirror/slackware/slackware-12.0/
+#Norway, 1Gbit
+#ftp://ftp.slackware.no/pub/linux/slackware/slackware-12.0/
+#Poland, 1Gbit
+#http://ftp.man.poznan.pl/pub/linux/slackware/slackware-12.0/
+#ftp://ftp.man.poznan.pl/pub/linux/slackware/slackware-12.0/
+#Poland, 100Mbit
+#ftp://ftp.man.szczecin.pl/pub/Linux/slackware/slackware-12.0/
+#Poland, 100Mbit
+#ftp://sunsite.icm.edu.pl/pub/Linux/slackware/slackware-12.0/
+#Portugal, 10Mbit
+#http://darkstar.ist.utl.pt/pub/slackware/slackware-12.0/
+#ftp://darkstar.ist.utl.pt/pub/slackware/slackware-12.0/
+#Portugal, 100Mbit
+#ftp://ftp.fe.up.pt/disk1/ftp.slackware.com/pub/slackware/slackware-12.0/
+#Republic of Moldova, 512kb/s
+#http://ftp.lug.md/pub/mirrors/ftp.slackware.com/pub/slackware/slackware-12.0/
+#ftp://ftp.lug.md/pub/mirrors/ftp.slackware.com/pub/slackware/slackware-12.0/
+#Romania, 100Mbit, 2Mbit
+#ftp://ftp.evolva.ro/linux/slackware/slackware-12.0/
+#Romania, 100Mbit, 2Mbit
+#http://serghei.net/linux/slackware/slackware-12.0/
+#Romania, 34Mbit
+#http://ftp.iasi.roedu.net/mirrors/ftp.slackware.com/slackware-12.0/
+#ftp://ftp.iasi.roedu.net/mirrors/ftp.slackware.com/slackware-12.0/
+#Romania, 5Mbit
+#ftp://ftp.rdsbv.ro/mirrors/slackware/slackware-12.0/
+#Russia, 100Mbit
+#ftp://ftp.chg.ru/pub/Linux/Slackware/slackware-12.0/
+#Russia, 100Mbit
+#http://slackware.perespim.ru/pub/slackware-12.0/
+#ftp://slackware.perespim.ru/pub/slackware-12.0/
+#Russia, 100Mbit
+#ftp://slackware.su29.ru/slackware-12.0/
+#Russia, 100Mbit
+#http://mirror.aiya.ruslackware-12.0/
+#ftp://mirror.aiya.ruslackware-12.0/
+#Serbia, 2x34Mbit
+#http://mirror.etf.bg.ac.yu/slackware/slackware-12.0/
+#ftp://mirror.etf.bg.ac.yu/slackware/slackware-12.0/
+#Slovakia, 100Mbit
+#ftp://ftp.bind.eu.org/pub/linux/slackware/slackware-12.0/
+#Slovakia, 100Mbit
+#ftp://ftp.pieskovisko.sk/pub/slackware/slackware-12.0/
+#South Africa, Multiple 45Mbit
+#ftp://ftp.is.co.za/mirror/ftp.slackware.com/pub/slackware/slackware-12.0/
+#Spain, 2x100Mbit
+#ftp://ftp.red.telefonica-wholesale.net/slackware/slackware-12.0/
+#Spain, 
+#ftp://ftp.etse.urv.es/pub/linux/slackware/slackware-12.0/
+#Sweden, 155Mbit
+#ftp://ftp.sunet.se/pub/Linux/distributions/slackware/slackware-12.0/
+#Sweden, 100Mbit
+#ftp://mirror.pudas.net/slackware/slackware-12.0/
+#Switzerland, 1Gbit
+#http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.0/
+#Taiwan, 1Gbit
+#http://ftp.cgu.edu.tw/Linux/Slackware/slackware-12.0/
+#ftp://ftp.cgu.edu.tw/Linux/Slackware/slackware-12.0/
+#Taiwan, 1Gbit
+#http://ftp.isu.edu.tw/pub/Linux/Slackware/slackware-12.0/
+#ftp://ftp.isu.edu.tw/pub/Linux/Slackware/slackware-12.0/
+#UK, 1Gbit
+#ftp://ftp.mirror.ac.uk/sites/ftp.slackware.com/slackware-12.0/
+#UK, 
+#http://ftp.mirrorservice.org/sites/ftp.slackware.com/pub/slackware/slackware-12.0/
+#ftp://ftp.mirrorservice.org/sites/ftp.slackware.com/pub/slackware/slackware-12.0/
+#UK, STM4
+#ftp://mirrors.blueyonder.co.uk/sites/ftp.slackware.com/slackware-12.0/
+#UK, 1Gbit
+#http://www.mirror.ac.uk/mirror/ftp.slackware.com/slackware-12.0/
+#USA, 155Mbps
+#http://carroll.cac.psu.edu/pub/linux/distributions/slackware/slackware-12.0/
+#ftp://carroll.cac.psu.edu/pub/linux/distributions/slackware/slackware-12.0/
+#USA, 
+#ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.0/
+#USA, 
+#ftp://ftp-linux.cc.gatech.edu/pub/slackware/slackware-12.0/
+#USA, 100Mbit
+#ftp://ftp.ale.org/pub/mirrors/slackware/slackware-12.0/
+#USA, 2xT3
+#ftp://ftp.cerias.purdue.edu/pub/os/slackware/slackware-12.0/
+#USA, 100Mbit
+#ftp://ftp.cs.stevens-tech.edu/pub/Linux/distributions/slackware/slackware-12.0/
+#USA, 1Gbit
+#http://lmlinux.com/distros/slackware/slackware-12.0/
+#USA, 100Mbit
+#http://mirror.mhvlug.org/slackware/slackware-12.0/
+#USA, OC-48
+#http://mirrors.usc.edu/pub/linux/distributions/slackware/slackware-12.0/
+#ftp://mirrors.usc.edu/pub/linux/distributions/slackware/slackware-12.0/
+#USA, 1Gbit
+#http://slackware.cs.utah.edu/pub/slackware/slackware-12.0/
+#ftp://slackware.cs.utah.edu/pub/slackware/slackware-12.0/
+#USA, 1Mbit
+#ftp://slackware.ext3networking.com/pub/slackware/slackware-12.0/
+#USA, GigE
+#http://mirrors.easynews.com/linux/slackware/slackware-12.0/
+#USA, x-OC12
+#http://slackware.mirrors.pair.com/slackware-12.0/
+#ftp://slackware.mirrors.pair.com/slackware-12.0/
+#USA, 1Gbit
+#http://slackware.mirrors.tds.net/pub/slackware/slackware-12.0/
+#ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.0/
+#USA, 10Mbit
+#ftp://ftp.slackware.com/pub/slackware/slackware-12.0/
+#USA, 45Mbit
+#http://slackware.oregonstate.edu/pub/slackware/slackware-12.0/
+#ftp://slackware.oregonstate.edu/pub/slackware/slackware-12.0/
