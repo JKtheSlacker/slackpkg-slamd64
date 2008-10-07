@@ -73,6 +73,11 @@
 #ftp://ftp.slackware.org.uk/slamd64/slamd64-12.1/
 #USA,
 #http://slamd64.he.net/slamd64-12.1/
+#USA, 
+#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.1/
+#USA,
+#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-12.1/
+#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-12.1/
 
 #----------------------------------------------------------------
 # Slamd64 current 
@@ -102,6 +107,12 @@
 #ftp://ftp.slackware.org.uk/slamd64/slamd64-current/
 #USA,
 #http://slamd64.he.net/slamd64-current/
+#USA, 
+#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-current/
+#USA,
+#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-current/
+#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-current/
+
 
 #----------------------------------------------------------------
 # Slamd64 12.0 
@@ -134,3 +145,10 @@
 #ftp://ftp.slackware.org.uk/slamd64/slamd64-12.0/
 #USA,
 #http://slamd64.he.net/slamd64-12.0/
+#USA, 
+#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.0/
+#USA,
+#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-12.0/
+#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-12.0/
+
+
