@@ -40,7 +40,7 @@ SLACKKEY="Frederick Emmott <mail@fredemmott.co.uk>"
 CONF=/etc/slackpkg
 SOURCE=$(grep -e "^\([a-z]\)" $CONF/mirrors)
 . $CONF/slackpkg.conf
-ARCH=${ARCH:-x86_64}
+ARCH=${ARCH:-x86_64_slamd64}
 LOCAL=0
 KERNELMD5=$(md5sum /boot/vmlinuz 2>/dev/null)
 TMPDIR=$(mktemp -p /tmp -d slackpkg.XXXXXX 2>/dev/null || echo "FAILED")
@@ -383,7 +383,7 @@ case "$CMD" in
 				for j in $PKGS ; do
 					NEWONE=`cutpkg ${j}`
 					echo $PACKAGES | \
-						grep -qe "${NEWONE}-[^-]\+-\(${ARCH}\|fw\|noarch\)-[[:digit:]]\+" && \
+						grep -qe "${NEWONE}-[^-]\+-\(${ARCH}\|fw_slamd64\|noarch_slamd64\)-[[:digit:]]\+" && \
 						continue
 					PACKAGES="$PACKAGES $j"
 				done
@@ -412,7 +412,7 @@ The list below shows all packages with the selected pattern.\n"
 			# Amazing what a little sleep will do
 			# exclusion is so much nicer :)
 			INSTPKG=$(ls -1 /var/log/packages | \
-				grep -e "^${BASENAME}-[^-]\+-\(${ARCH}\|fw\|noarch\)-[[:digit:]]\+")
+				grep -e "^${BASENAME}-[^-]\+-\(${ARCH}\|fw_slamd64\|noarch_slamd64\)-[[:digit:]]\+")
 
 			    # INSTPKG is local version
 			    if [ ! "${INSTPKG}" = "" ]; then
@@ -434,7 +434,7 @@ The list below shows all packages with the selected pattern.\n"
 	"info")
 		PATTERN=`echo $INPUTLIST | sed -e 's/\+/\\\+/g' -e 's/\./\\\./g'`
 		NAME=$(cutpkg $PATTERN)
-		awk -F: "/PACKAGE NAME:.* ${NAME}-[^-]+-(${ARCH}|fw|noarch)-[[:digit:]]+/,/^$/ {
+		awk -F: "/PACKAGE NAME:.* ${NAME}-[^-]+-(${ARCH}|fw_slamd64|noarch_slamd64)-[[:digit:]]+/,/^$/ {
                                 found=1
 				 if (\$1 ~ /"$NAME"/) {
 				 print \$PATTERN 

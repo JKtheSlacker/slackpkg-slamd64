@@ -23,7 +23,7 @@ if [ "$DIALOG" = "on" ] || [ "$DIALOG" = "ON" ]; then
 			ls -1 /var/log/packages > $TMPDIR/tmplist
 			for i in $1; do
 				BASENAME=$(cutpkg $i)
-				PKGFOUND=$(grep -m1 -e "^${BASENAME}-[^-]\+-\(noarch\|fw\|${ARCH}\)" $TMPDIR/tmplist).tgz
+				PKGFOUND=$(grep -m1 -e "^${BASENAME}-[^-]\+-\(noarch_slamd64\|fw_slamd64\|${ARCH}\)" $TMPDIR/tmplist).tgz
 				echo "$i \"\" $ONOFF \"currently installed: $PKGFOUND\"" >>$TMPDIR/dialog.tmp
 			done
 			HINT="--item-help"

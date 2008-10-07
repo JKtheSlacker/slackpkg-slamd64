@@ -38,7 +38,7 @@
 # x86 (the main arch for Slackware)
 #ARCH=[i]*[3456x]86
 # x86_64 (Slamd64 and BlueWhite64)
-ARCH=x86_64 
+ARCH=x86_64_slamd64 
 # PowerPC (Slackintosh)
 #ARCH=powerpc
 # S/390 (Slack/390)

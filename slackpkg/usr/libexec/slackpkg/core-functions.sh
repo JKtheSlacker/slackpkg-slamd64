@@ -370,7 +370,7 @@ function makelist() {
 					case $CMD in
 						'upgrade')
 							VRFY=$(cut -f6 -d\  ${TMPDIR}/tmplist | \
-							      grep -x "${NAME}-[^-]\+-\(noarch\|fw\|${ARCH}\)-[^-]\+")
+							      grep -x "${NAME}-[^-]\+-\(noarch_slamd64\|fw_slamd64\|${ARCH}\)-[^-]\+")
 							[ "${FULLNAME}" != "${VRFY}" ]  && \
 										[ "${VRFY}" ] && \
 								LIST="$LIST ${FULLNAME}"
@@ -414,7 +414,7 @@ function makelist() {
 				givepriority ${i}
 				[ ! "$FULLNAME" ] && continue
 
-				VRFY=$(cut -f6 -d\  ${TMPDIR}/tmplist | grep -x "${NAME}-[^-]\+-\(noarch\|fw\|${ARCH}\)-[^-]\+")
+				VRFY=$(cut -f6 -d\  ${TMPDIR}/tmplist | grep -x "${NAME}-[^-]\+-\(noarch_slamd64\|fw_slamd64\|${ARCH}\)-[^-]\+")
 				[ "${FULLNAME}" != "${VRFY}" ]  && \
 							[ "${VRFY}" ] && \
 					LIST="$LIST ${FULLNAME}"
@@ -681,12 +681,12 @@ function sanity_check() {
 	local ANSWER
 
 	for i in $(ls -1 /var/log/packages | \
-		egrep -- "^.*-(${ARCH}|fw|noarch)-[^-]+-upgraded"); do
+		egrep -- "^.*-(${ARCH}|fw_slamd64|noarch_slamd64)-[^-]+-upgraded"); do
 		REVNAME=$(echo ${i} | awk -F'-upgraded' '{ print $1 }')
 		mv /var/log/packages/${i} /var/log/packages/${REVNAME}
 		mv /var/log/scripts/${i} /var/log/scripts/${REVNAME}
 	done 
-	for i in $(ls -1 /var/log/packages | egrep "^.*-(${ARCH}|fw|noarch)-[^-]+$"); do
+	for i in $(ls -1 /var/log/packages | egrep "^.*-(${ARCH}|fw_slamd64|noarch_slamd64)-[^-]+$"); do
 		cutpkg $i
 	done | sort > $TMPDIR/list1
 	cat $TMPDIR/list1 | uniq > $TMPDIR/list2
@@ -706,7 +706,7 @@ worry about this list - when you select your action, slackpkg will show a\n\
 better list:\n"
 		for i in $DOUBLEFILES ; do
 			ls -1 /var/log/packages |\
-				egrep -i -- "^${i}-[^-]+-(${ARCH}|fw|noarch)-"
+				egrep -i -- "^${i}-[^-]+-(${ARCH}|fw_slamd64|noarch_slamd64)-"
 		done
 		echo -ne "\n\
 You can (B)lacklist, (R)emove, or (I)gnore these packages.\n\
@@ -721,7 +721,7 @@ Select your action (B/R/I): "
 			R|r)
 				for i in $DOUBLEFILES ; do
 					FILE=$(ls -1 /var/log/packages |\
-						egrep -i -- "^${i}-[^-]+-(${ARCH}|fw|noarch)-")
+						egrep -i -- "^${i}-[^-]+-(${ARCH}|fw_slamd64|noarch_slamd64)-")
 					FILES="$FILES $FILE"
 				done
 				showlist "$FILES" remove
