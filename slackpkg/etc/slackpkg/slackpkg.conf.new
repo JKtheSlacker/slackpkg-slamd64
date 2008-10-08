@@ -37,7 +37,8 @@
 # Select the architecture of your system
 # x86 (the main arch for Slackware)
 #ARCH=[i]*[3456x]86
-# x86_64 (Slamd64 and BlueWhite64)
+# x86_64 (BlueWhite64)
+# x86_64_slamd64 (Slamd64)
 ARCH=x86_64_slamd64 
 # PowerPC (Slackintosh)
 #ARCH=powerpc
@@ -67,7 +68,7 @@ CHECKGPG=on
 # The lines below will set the download priority. 
 # Default values: /patches /slackware /extra /pasture /testing
 FIRST=patches
-SECOND=slamd64
+SECOND=slackware
 THIRD=extra
 FOURTH=pasture
 FIFTH=testing
@@ -75,7 +76,7 @@ FIFTH=testing
 # The default MAIN is "slackware", but some derived distros use other
 # names as the main directory. Of course, MAIN needs to be listed in
 # the download priority directories
-MAIN=slamd64
+MAIN=slackware
 
 # Enables (on) or disables (off) slackpkg's post-installation features, such
 # as checking for new (*.new) configuration files and new kernel images, and
