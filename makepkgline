@@ -1,0 +1,1 @@
+/sbin/makepkg -l y -c n /tmp/slackpkg-2.70.5-x86_64_slamd64-1jkw.tgz
