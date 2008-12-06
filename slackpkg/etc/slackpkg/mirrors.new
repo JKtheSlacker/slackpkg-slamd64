@@ -1,7 +1,7 @@
 # mirrors - List of Slamd64 Linux mirrors.
 #
 # SlackPkg - An Automated packaging tool for Slackware Linux
-# Copyright (C) 2003,2004,2005,2006,2007 Roberto F. Batista, Evaldo Gardenali
+# Copyright (C) 2003-2008 Roberto F. Batista, Evaldo Gardenali
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,8 +27,8 @@
 # You only need to select one mirror and uncomment them. Please,
 # ONLY ONE mirror can be uncommented each time.
 #
-# In this file you can find mirrors for slamd64 12.1, current
-# and 12.1 (in this order).
+# In this file you can find mirrors for slamd64 12.2, 12.1, current
+# and 12.0 (in this order).
 #
 # The mirrors file is kept synced with the official slamd64 
 # mirrors. If you find any incorrect mirror, please report it 
@@ -41,6 +41,43 @@
 # Local CD drive
 #----------------------------------------------------------------
 #cdrom://mnt/cdrom/
+
+#----------------------------------------------------------------
+# Slamd64 12.2 
+#----------------------------------------------------------------
+#Canada, Dual Fiber
+#http://mirror1.slackadelic.com/slamd64/slamd64-12.2/
+#Germany, 
+#ftp://slamd64.wahlfaelschung.de/slamd64-12.2/
+#http://slamd64.wahlfaelschung.de/slamd64-12.2/
+#Ireland, 1Gbit
+#ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.2/
+#http://ftp.heanet.ie/pub/slamd64/slamd64-12.2/
+#Poland, 
+#ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.2/
+#http://ftp.slackware.pl/pub/slamd64/slamd64-12.2/
+#Portugal, 
+#ftp://cesium.di.uminho.pt/pub/slamd64/slamd64-12.2/
+#http://cesium.di.uminho.pt/pub/slamd64/slamd64-12.2/
+#Russia,
+#ftp://mirror.yandex.ru/slamd64/slamd64-12.2/
+#http://mirror.yandex.ru/slamd64/slamd64-12.2/
+#Sweden, 
+#ftp://slamd64.tfr.org/slamd64-12.2/
+#http://slamd64.tfr.org/slamd64-12.2/
+#UK, 1Gbit
+#ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.2/
+#http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.2/
+#UK, 
+#http://www.slackware.org.uk/slamd64/slamd64-12.2/
+#ftp://ftp.slackware.org.uk/slamd64/slamd64-12.2/
+#USA,
+#http://slamd64.he.net/slamd64-12.2/
+#USA, 
+#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.2/
+#USA,
+#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-12.2/
+#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-12.2/
 
 #----------------------------------------------------------------
 # Slamd64 12.1 

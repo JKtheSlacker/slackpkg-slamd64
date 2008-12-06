@@ -1,4 +1,4 @@
-/^(a|ap|c|d|e|f|k|kde|kdei|l|n|t|tcl|x|xap|y)\/([a-zA-Z0-9_\+]+)-.*:.* ([Ad]dded|[Ss]plit|[Rr]enamed|[Mm]oved|[Nn]ame [Cc]hange|NAME CHANGE).*/ {
+/^(a|ap|c|d|e|f|k|kde|kdei|l|n|t|tcl|x|xap|y)\/([a-zA-Z0-9_\+]+)-.*:.* ([Ad]dded|[Ss]plit|[Rr]enamed|[Mm]oved|[Nn]ame [Cc]hange|NAME CHANGE|[Ss]witched).*/ {
 	INPUT=$1
 	fs=FS
 	FS="/" ; OFS="/"
@@ -26,7 +26,7 @@
 	NAME=$0
 }
 
-/^ *([Ad]dded|[Ss]plit|[Rr]enamed|[Mm]oved|[Nn]ame [Cc]hange|NAME CHANGE).*/ {
+/^ *([Ad]dded|[Ss]plit|[Rr]enamed|[Mm]oved|[Nn]ame [Cc]hange|NAME CHANGE|[Ss]witched).*/ {
 	if ( CONTINUE==yes ) {
 		print NAME
 	}

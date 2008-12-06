@@ -1,6 +1,27 @@
 ChangeLog
 ---------
 
+2008 Thu Dec 04
+---------------
+	- Change version in man-pages (ok, put the version in man-pages
+	  probably was the most stupid idea that i had).
+	- Released 2.70.5
+
+2008 Mon Dec 01
+---------------
+        - Update mirrors file for Slackware 12.2 (Thanks rworkman!)
+	- Change version to 2.70.5 (Thanks rworkman!)
+
+2008 Tue Nov 25
+---------------
+        - Fix install-new.awk file to catch the return of
+          bluez-libs and bluez-utils
+
+2008 Fri Nov 21
+---------------
+	- We are in Slackware main-tree!!! Big Thanks Patrick!
+	  Big thanks to all our users!
+
 2008 Fri May 02
 ---------------
 	- Fix regexp in slackpkg.conf to x86 arch. It was missing

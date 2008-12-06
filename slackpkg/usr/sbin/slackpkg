@@ -33,7 +33,7 @@
 # CONF = configuration directory
 # SOURCE = A mirror of Slamd64. Source can be sett by editing $CONF/mirrors
 #
-VERSION=2.70.4
+VERSION=2.70.5
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
 SLACKWARE_VERSION=$(cat /etc/slamd64-version | cut -f2 -d\ )
 SLACKKEY="Frederick Emmott <mail@fredemmott.co.uk>"

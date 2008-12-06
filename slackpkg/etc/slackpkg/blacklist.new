@@ -3,7 +3,7 @@
 #
 # The correct syntax is:
 #
-# to blacklist the package xfree86-devel-4.3.0-i386-1 the line will be:
+# To blacklist the package xfree86-devel-4.3.0-i386-1 the line will be:
 # xfree86-devel
 #
 # DON'T put any blank line(s) or any space(s) before or after the package name.
