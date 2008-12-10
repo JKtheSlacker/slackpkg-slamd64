@@ -1,0 +1,258 @@
+#!/bin/sh
+# Script to port slackpkg for use in Slamd64
+# Written by JK Wood <joshuakwood@gmail.com>
+
+# portslackpkg is released under the Dog-on-Fire License:
+# If use of sbsuite causes your dog to catch on fire,
+# you agree to send me five dollars.  Or a picture
+# of the dog on fire.
+# Otherwise, you're on your own.  I've tested sbsuite
+# on my own computer, and it hasn't broken anything.
+# So if it does it on your computer, that falls in
+# the realm of "Not my problem."
+#
+# Of course, if you'll send a bug report to the above
+# email address, I may be able to see what you did
+# wrong and prevent it from happening in the future.
+# In which case, I may just send YOU five dollars.
+
+set -e
+
+mkdir -p slackpkg
+tar xvzf slackpkg-2.70.5-noarch-1.tgz -C slackpkg
+cd slackpkg
+PKG=$(pwd)
+
+# First and most obvious thing is to take care of the mirrors
+# file.
+cd $PKG/etc/slackpkg/
+cat << EOF > mirrors.new
+# mirrors - List of Slamd64 Linux mirrors.
+#
+# SlackPkg - An Automated packaging tool for Slackware Linux
+# Copyright (C) 2003-2008 Roberto F. Batista, Evaldo Gardenali
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# Project Page: http://slackpkg.org/
+# Roberto F. Batista (aka PiterPunk) piterpk@terra.com.br
+# Evaldo Gardenali (aka UdontKnow) evaldogardenali@fasternet.com.br
+#
+# END OF LEGAL NOTICE
+#
+#
+# You only need to select one mirror and uncomment them. Please,
+# ONLY ONE mirror can be uncommented each time.
+#
+# In this file you can find mirrors for slamd64 12.2, 12.1, current
+# and 12.0 (in this order).
+#
+# The mirrors file is kept synced with the official slamd64 
+# mirrors. If you find any incorrect mirror, please report it 
+# to fred <mail@fredemmott.co.uk>
+#
+# SlackPkg has been ported to the Slamd64 platform by
+# JK Wood (aka jkwood) joshuakwood@gmail.com
+
+#----------------------------------------------------------------
+# Local CD drive
+#----------------------------------------------------------------
+#cdrom://mnt/cdrom/
+
+#----------------------------------------------------------------
+# Slamd64 12.2 
+#----------------------------------------------------------------
+#Canada, Dual Fiber
+#http://mirror1.slackadelic.com/slamd64/slamd64-12.2/
+#Germany, 
+#ftp://slamd64.wahlfaelschung.de/slamd64-12.2/
+#http://slamd64.wahlfaelschung.de/slamd64-12.2/
+#Ireland, 1Gbit
+#ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.2/
+#http://ftp.heanet.ie/pub/slamd64/slamd64-12.2/
+#Poland, 
+#ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.2/
+#http://ftp.slackware.pl/pub/slamd64/slamd64-12.2/
+#Portugal, 
+#ftp://cesium.di.uminho.pt/pub/slamd64/slamd64-12.2/
+#http://cesium.di.uminho.pt/pub/slamd64/slamd64-12.2/
+#Russia,
+#ftp://mirror.yandex.ru/slamd64/slamd64-12.2/
+#http://mirror.yandex.ru/slamd64/slamd64-12.2/
+#Sweden, 
+#ftp://slamd64.tfr.org/slamd64-12.2/
+#http://slamd64.tfr.org/slamd64-12.2/
+#UK, 1Gbit
+#ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.2/
+#http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.2/
+#UK, 
+#http://www.slackware.org.uk/slamd64/slamd64-12.2/
+#ftp://ftp.slackware.org.uk/slamd64/slamd64-12.2/
+#USA,
+#http://slamd64.he.net/slamd64-12.2/
+#USA, 
+#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.2/
+#USA,
+#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-12.2/
+#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-12.2/
+
+#----------------------------------------------------------------
+# Slamd64 12.1 
+#----------------------------------------------------------------
+#Canada, Dual Fiber
+#http://mirror1.slackadelic.com/slamd64/slamd64-12.1/
+#Germany, 
+#ftp://slamd64.wahlfaelschung.de/slamd64-12.1/
+#http://slamd64.wahlfaelschung.de/slamd64-12.1/
+#Ireland, 1Gbit
+#ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.1/
+#http://ftp.heanet.ie/pub/slamd64/slamd64-12.1/
+#Poland, 
+#ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.1/
+#http://ftp.slackware.pl/pub/slamd64/slamd64-12.1/
+#Portugal, 
+#ftp://cesium.di.uminho.pt/pub/slamd64/slamd64-12.1/
+#http://cesium.di.uminho.pt/pub/slamd64/slamd64-12.1/
+#Russia,
+#ftp://mirror.yandex.ru/slamd64/slamd64-12.1/
+#http://mirror.yandex.ru/slamd64/slamd64-12.1/
+#Sweden, 
+#ftp://slamd64.tfr.org/slamd64-12.1/
+#http://slamd64.tfr.org/slamd64-12.1/
+#UK, 1Gbit
+#ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.1/
+#http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.1/
+#UK, 
+#http://www.slackware.org.uk/slamd64/slamd64-12.1/
+#ftp://ftp.slackware.org.uk/slamd64/slamd64-12.1/
+#USA,
+#http://slamd64.he.net/slamd64-12.1/
+#USA, 
+#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.1/
+#USA,
+#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-12.1/
+#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-12.1/
+
+#----------------------------------------------------------------
+# Slamd64 current 
+#----------------------------------------------------------------
+#Canada, Dual Fiber
+#http://mirror1.slackadelic.com/slamd64/slamd64-current/
+#Germany, 
+#ftp://slamd64.wahlfaelschung.de/slamd64-current/
+#http://slamd64.wahlfaelschung.de/slamd64-current/
+#Ireland, 1Gbit
+#ftp://ftp.heanet.ie/pub/slamd64/slamd64-current/
+#http://ftp.heanet.ie/pub/slamd64/slamd64-current/
+#Poland, 
+#ftp://ftp.slackware.pl/pub/slamd64/slamd64-current/
+#http://ftp.slackware.pl/pub/slamd64/slamd64-current/
+#Russia,
+#ftp://mirror.yandex.ru/slamd64/slamd64-current/
+#http://mirror.yandex.ru/slamd64/slamd64-current/
+#Sweden, 
+#ftp://slamd64.tfr.org/slamd64-current/
+#http://slamd64.tfr.org/slamd64-current/
+#UK, 1Gbit
+#http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-current/
+#ftp://anorien.warwick.ac.uk/slamd64/slamd64-current/
+#UK, 
+#http://www.slackware.org.uk/slamd64/slamd64-current/
+#ftp://ftp.slackware.org.uk/slamd64/slamd64-current/
+#USA,
+#http://slamd64.he.net/slamd64-current/
+#USA, 
+#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-current/
+#USA,
+#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-current/
+#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-current/
+
+
+#----------------------------------------------------------------
+# Slamd64 12.0 
+#----------------------------------------------------------------
+#Canada, Dual Fiber
+#http://mirror1.slackadelic.com/slamd64/slamd64-12.0/
+#Germany, 
+#ftp://slamd64.wahlfaelschung.de/slamd64-12.0/
+#http://slamd64.wahlfaelschung.de/slamd64-12.0/
+#Ireland, 1Gbit
+#ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.0/
+#http://ftp.heanet.ie/pub/slamd64/slamd64-12.0/
+#Poland, 
+#ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.0/
+#http://ftp.slackware.pl/pub/slamd64/slamd64-12.0/
+#Portugal, 
+#ftp://cesium.di.uminho.pt/pub/slamd64/slamd64-12.0/
+#http://cesium.di.uminho.pt/pub/slamd64/slamd64-12.0/
+#Russia,
+#ftp://mirror.yandex.ru/slamd64/slamd64-12.0/
+#http://mirror.yandex.ru/slamd64/slamd64-12.0/
+#Sweden, 
+#ftp://slamd64.tfr.org/slamd64-12.0/
+#http://slamd64.tfr.org/slamd64-12.0/
+#UK, 1Gbit
+#ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.0/
+#http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.0/
+#UK, 
+#http://www.slackware.org.uk/slamd64/slamd64-12.0/
+#ftp://ftp.slackware.org.uk/slamd64/slamd64-12.0/
+#USA,
+#http://slamd64.he.net/slamd64-12.0/
+#USA, 
+#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.0/
+#USA,
+#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-12.0/
+#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-12.0/
+EOF
+
+# Next few lines will deal with slackpkg.conf
+sed -i '1,/ARCH=/ { s/ARCH/#ARCH/ }' slackpkg.conf.new
+sed -i s/Slamd64\ and// slackpkg.conf.new
+sed -i '/#ARCH=x86_64/ a\
+# x86_64_slamd64 (Slamd64)\
+ARCH=x86_64_slamd64
+' slackpkg.conf.new
+
+# Next we move on to core-functions.sh
+cd $PKG/usr/libexec/slackpkg/
+sed -i s/ckware/md64/ core-functions.sh
+sed -i s/noarch/noarch_slamd64/g core-functions.sh
+sed -i s/fw/fw_slamd64/g core-functions.sh
+
+# install-new.awk
+sed -i s/"ap|d"/"ap|c|d"/g install-new.awk
+
+# dialog-functions.sh
+cd $PKG/usr/libexec/slackpkg/functions.d/
+sed -i s/noarch/noarch_slamd64/g dialog-functions.sh
+sed -i s/fw/fw_slamd64/g dialog-functions.sh
+
+# The slackpkg executable
+cd $PKG/usr/sbin/
+sed -i '23,23 a\
+# Modified for Slamd64 by\
+# JK Wood (aka jkwood) joshuakwood@gmail.com
+' slackpkg
+sed -i s/"Slackware Linux Project <security@slackware.com>"/"Frederick Emmott <mail@fredemmott.co.uk>"/ slackpkg
+sed -i s/ckware/md64/g slackpkg
+sed -i s/-i\\[3456\\]86/-x86_64_slamd64/ slackpkg
+sed -i s/noarch/noarch_slamd64/g slackpkg
+sed -i s/fw/fw_slamd64/g slackpkg
+
+# And we're done!  Thanks for playing!
+cd $PKG
+/sbin/makepkg -l y -c n /tmp/slackpkg-2.70.5-noarch_slamd64-1.tgz
+
