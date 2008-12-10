@@ -1,0 +1,8 @@
+Porting Slackpkg, the Slackware remote package manager,
+for use on Slamd64 is non-trivial.  With this in mind,
+here is a tree containing my working ported tree, and
+also a tool to take a standard slackpkg package from
+Slackware and automatically port it for use on Slamd64.
+
+As of this writing, this script is known to work on 
+Slackpkg 2.70.5.
