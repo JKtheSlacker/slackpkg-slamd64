@@ -2,7 +2,7 @@ BEGIN {
   starting = 1
 }
 
-/^\|\|[[:blank:]]+Package:[[:blank:]]+.*-[[:alnum:]]+-[[:digit:]]+\.tgz$/ {
+/^\|\|[[:blank:]]+Package:[[:blank:]]+.*-[[:alnum:]_]+-[[:digit:]]+\.tgz$/ {
   if( starting == 1 )
     starting = 0
   else

@@ -235,6 +235,9 @@ sed -i s/fw/fw_slamd64/g core-functions.sh
 # install-new.awk
 sed -i s/"ap|d"/"ap|c|d"/g install-new.awk
 
+# filelist.awk (Thanks to CtrlAltCa for this fix
+sed -i s/num\:\]\]/num\:\]\_\]/ filelist.awk
+
 # dialog-functions.sh
 cd $PKG/usr/libexec/slackpkg/functions.d/
 sed -i s/noarch/noarch_slamd64/g dialog-functions.sh
