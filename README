@@ -6,3 +6,9 @@ Slackware and automatically port it for use on Slamd64.
 
 As of this writing, this script is known to work on 
 Slackpkg 2.70.5.
+
+I've also added a new directory, beta/.  This contains
+slackpkg 2.71beta2, as ported for Slamd64.  Feel free
+to run makepkg on this directory and give it a try.
+portslackpkg will continue to be aimed for full
+releases as seen in Slackware.
