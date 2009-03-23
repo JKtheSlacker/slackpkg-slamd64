@@ -268,5 +268,5 @@ sed -i s/fw/fw_slamd64/g slackpkg
 
 # And we're done!  Thanks for playing!
 cd $PKG
-/sbin/makepkg -l y -c n /tmp/slackpkg-2.70.5-noarch_slamd64-1.tgz
+/sbin/makepkg -l y -c n /tmp/slackpkg-2.70.5-noarch_slamd64-2.tgz
 
