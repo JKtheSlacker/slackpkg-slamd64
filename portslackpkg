@@ -56,8 +56,8 @@ cat << EOF > mirrors.new
 # You only need to select one mirror and uncomment them. Please,
 # ONLY ONE mirror can be uncommented each time.
 #
-# In this file you can find mirrors for slamd64 12.2, 12.1, current
-# and 12.0 (in this order).
+# In this file you can find mirrors for the following (in this order):
+# Slackware 12.2, 12.1, 12.0, and -current
 #
 # The mirrors file is kept synced with the official slamd64 
 # mirrors. If you find any incorrect mirror, please report it 
@@ -82,6 +82,9 @@ cat << EOF > mirrors.new
 #Ireland, 1Gbit
 #ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.2/
 #http://ftp.heanet.ie/pub/slamd64/slamd64-12.2/
+#Netherlands,
+#http://goudrenet.student.utwente.nl/slamd64/slamd64-12.2/
+#ftp://goudrenet.student.utwente.nl/slamd64/slamd64-12.2/
 #Poland, 
 #ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.2/
 #http://ftp.slackware.pl/pub/slamd64/slamd64-12.2/
@@ -91,9 +94,6 @@ cat << EOF > mirrors.new
 #Russia,
 #ftp://mirror.yandex.ru/slamd64/slamd64-12.2/
 #http://mirror.yandex.ru/slamd64/slamd64-12.2/
-#Sweden, 
-#ftp://slamd64.tfr.org/slamd64-12.2/
-#http://slamd64.tfr.org/slamd64-12.2/
 #UK, 1Gbit
 #ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.2/
 #http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.2/
@@ -101,9 +101,12 @@ cat << EOF > mirrors.new
 #http://www.slackware.org.uk/slamd64/slamd64-12.2/
 #ftp://ftp.slackware.org.uk/slamd64/slamd64-12.2/
 #USA,
+#ftp://ftp.gtlib.gatech.edu/pub/slamd64/slamd64-12.2/
+#USA,
 #http://slamd64.he.net/slamd64-12.2/
 #USA, 
 #http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.2/
+#ftp://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.2/
 #USA,
 #http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-12.2/
 #ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-12.2/
@@ -119,6 +122,9 @@ cat << EOF > mirrors.new
 #Ireland, 1Gbit
 #ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.1/
 #http://ftp.heanet.ie/pub/slamd64/slamd64-12.1/
+#Netherlands,
+#http://goudrenet.student.utwente.nl/slamd64/slamd64-12.1/
+#ftp://goudrenet.student.utwente.nl/slamd64/slamd64-12.1/
 #Poland, 
 #ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.1/
 #http://ftp.slackware.pl/pub/slamd64/slamd64-12.1/
@@ -128,9 +134,6 @@ cat << EOF > mirrors.new
 #Russia,
 #ftp://mirror.yandex.ru/slamd64/slamd64-12.1/
 #http://mirror.yandex.ru/slamd64/slamd64-12.1/
-#Sweden, 
-#ftp://slamd64.tfr.org/slamd64-12.1/
-#http://slamd64.tfr.org/slamd64-12.1/
 #UK, 1Gbit
 #ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.1/
 #http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.1/
@@ -138,47 +141,15 @@ cat << EOF > mirrors.new
 #http://www.slackware.org.uk/slamd64/slamd64-12.1/
 #ftp://ftp.slackware.org.uk/slamd64/slamd64-12.1/
 #USA,
+#ftp://ftp.gtlib.gatech.edu/pub/slamd64/slamd64-12.1/
+#USA,
 #http://slamd64.he.net/slamd64-12.1/
 #USA, 
 #http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.1/
+#ftp://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.1/
 #USA,
 #http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-12.1/
 #ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-12.1/
-
-#----------------------------------------------------------------
-# Slamd64 current 
-#----------------------------------------------------------------
-#Canada, Dual Fiber
-#http://mirror1.slackadelic.com/slamd64/slamd64-current/
-#Germany, 
-#ftp://slamd64.wahlfaelschung.de/slamd64-current/
-#http://slamd64.wahlfaelschung.de/slamd64-current/
-#Ireland, 1Gbit
-#ftp://ftp.heanet.ie/pub/slamd64/slamd64-current/
-#http://ftp.heanet.ie/pub/slamd64/slamd64-current/
-#Poland, 
-#ftp://ftp.slackware.pl/pub/slamd64/slamd64-current/
-#http://ftp.slackware.pl/pub/slamd64/slamd64-current/
-#Russia,
-#ftp://mirror.yandex.ru/slamd64/slamd64-current/
-#http://mirror.yandex.ru/slamd64/slamd64-current/
-#Sweden, 
-#ftp://slamd64.tfr.org/slamd64-current/
-#http://slamd64.tfr.org/slamd64-current/
-#UK, 1Gbit
-#http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-current/
-#ftp://anorien.warwick.ac.uk/slamd64/slamd64-current/
-#UK, 
-#http://www.slackware.org.uk/slamd64/slamd64-current/
-#ftp://ftp.slackware.org.uk/slamd64/slamd64-current/
-#USA,
-#http://slamd64.he.net/slamd64-current/
-#USA, 
-#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-current/
-#USA,
-#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-current/
-#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-current/
-
 
 #----------------------------------------------------------------
 # Slamd64 12.0 
@@ -191,6 +162,9 @@ cat << EOF > mirrors.new
 #Ireland, 1Gbit
 #ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.0/
 #http://ftp.heanet.ie/pub/slamd64/slamd64-12.0/
+#Netherlands,
+#http://goudrenet.student.utwente.nl/slamd64/slamd64-12.0/
+#ftp://goudrenet.student.utwente.nl/slamd64/slamd64-12.0/
 #Poland, 
 #ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.0/
 #http://ftp.slackware.pl/pub/slamd64/slamd64-12.0/
@@ -200,9 +174,6 @@ cat << EOF > mirrors.new
 #Russia,
 #ftp://mirror.yandex.ru/slamd64/slamd64-12.0/
 #http://mirror.yandex.ru/slamd64/slamd64-12.0/
-#Sweden, 
-#ftp://slamd64.tfr.org/slamd64-12.0/
-#http://slamd64.tfr.org/slamd64-12.0/
 #UK, 1Gbit
 #ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.0/
 #http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.0/
@@ -210,12 +181,52 @@ cat << EOF > mirrors.new
 #http://www.slackware.org.uk/slamd64/slamd64-12.0/
 #ftp://ftp.slackware.org.uk/slamd64/slamd64-12.0/
 #USA,
+#ftp://ftp.gtlib.gatech.edu/pub/slamd64/slamd64-12.0/
+#USA,
 #http://slamd64.he.net/slamd64-12.0/
 #USA, 
 #http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.0/
+#ftp://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-12.0/
 #USA,
 #http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-12.0/
 #ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-12.0/
+
+#----------------------------------------------------------------
+# Slamd64 current 
+#----------------------------------------------------------------
+#Canada, Dual Fiber
+#http://mirror1.slackadelic.com/slamd64/slamd64-current/
+#Germany, 
+#ftp://slamd64.wahlfaelschung.de/slamd64-current/
+#http://slamd64.wahlfaelschung.de/slamd64-current/
+#Ireland, 1Gbit
+#ftp://ftp.heanet.ie/pub/slamd64/slamd64-current/
+#http://ftp.heanet.ie/pub/slamd64/slamd64-current/
+#Netherlands,
+#http://goudrenet.student.utwente.nl/slamd64/slamd64-current/
+#ftp://goudrenet.student.utwente.nl/slamd64/slamd64-current/
+#Poland, 
+#ftp://ftp.slackware.pl/pub/slamd64/slamd64-current/
+#http://ftp.slackware.pl/pub/slamd64/slamd64-current/
+#Russia,
+#ftp://mirror.yandex.ru/slamd64/slamd64-current/
+#http://mirror.yandex.ru/slamd64/slamd64-current/
+#UK, 1Gbit
+#ftp://anorien.warwick.ac.uk/slamd64/slamd64-current/
+#http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-current/
+#UK, 
+#http://www.slackware.org.uk/slamd64/slamd64-current/
+#ftp://ftp.slackware.org.uk/slamd64/slamd64-current/
+#USA,
+#ftp://ftp.gtlib.gatech.edu/pub/slamd64/slamd64-current/
+#USA,
+#http://slamd64.he.net/slamd64-current/
+#USA, 
+#http://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-current/
+#ftp://mirrors-sanfrancisco.hostgis.com/slamd64/slamd64-current/
+#USA,
+#http://mirrors.vbi.vt.edu/mirrors/linux/slamd64/slamd64-current/
+#ftp://mirrors.vbi.vt.edu/linux/slamd64/slamd64-current/
 EOF
 
 # Next few lines will deal with slackpkg.conf
