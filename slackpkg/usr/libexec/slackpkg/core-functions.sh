@@ -19,7 +19,7 @@ One or more errors occurred while slackpkg was running:
 	fi    
 	echo
 	if [ "$DELALL" = "on" ] && [ "$NAMEPKG" != "" ]; then
-		rm $TEMP/$NAMEPKG &>/dev/null
+		rm $CACHEPATH/$NAMEPKG &>/dev/null
 	fi		
 	( rm -f /var/lock/slackpkg.$$ && rm -rf $TMPDIR ) &>/dev/null
 	exit
@@ -96,20 +96,23 @@ mirrors uncommented is not valid syntax.\n"
 		fi
 	fi
 
-	# It will check if the mirror selected are ftp.slackware.com
-	# if set to "ftp.slackware.com" tell the user to choose another
+	# It will check if the mirror selected are ftp.slamd64.com
+	# if set to "ftp.slamd64.com" tell the user to choose another
 	#
-	if echo ${SOURCE} | grep "^ftp://ftp.slackware.com" &>/dev/null ; then
+	if echo ${SOURCE} | grep "^ftp://ftp.slamd64.com" &>/dev/null ; then
 		echo -e "\n\
 Please use one of the mirrors.\n\
-ftp.slackware.com should be reserved so that the\n\
+ftp.slamd64.com should be reserved so that the\n\
 official mirrors can be kept up-to-date.\n"
 		cleanup
 	fi
 
 	# Checking if the user has the permissions to install/upgrade/update
 	#                                                                    
-	if [ "$(id -u)" != "0" ] && [ "$CMD" != "search" ] && [ "$CMD" != "info" ]; then
+	if [ "$(id -u)" != "0" ] && \
+	   [ "$CMD" != "search" ] && \
+	   [ "$CMD" != "check-updates" ] && \
+	   [ "$CMD" != "info" ]; then
 		echo -e "\n\
 Only root can install, upgrade, or remove packages.\n\
 Please log in as root or contact your system administrator.\n"
@@ -174,8 +177,12 @@ with slackpkg.\n"
 	#                                                       
 	GPGFIRSTTIME="$(gpg --list-keys \"$SLACKKEY\" 2>/dev/null \
 			| grep -c "$SLACKKEY")"
-	if [ "$GPGFIRSTTIME" = "0" ] && [ "$CMD" != "search" ] && [ "$CMD" != "info" ] && \
-			[ "$CMD" != "update" ] && [ "$CHECKGPG" = "on" ]; then
+	if [ "$GPGFIRSTTIME" = "0" ] && \
+		[ "$CMD" != "search" ] && \
+		[ "$CMD" != "info" ] && \
+		[ "$CMD" != "update" ] && \
+		[ "$CMD" != "check-updates" ] && \
+		[ "$CHECKGPG" = "on" ]; then
 		echo -e "\n\
 You need the GPG key of $SLACKKEY.\n\
 To download and install that key, run:\n\n\
@@ -189,12 +196,12 @@ with slackpkg.\n"
 
 	if [ "$BATCH" = "on" ] || [ "$BATCH" = "ON" ]; then
 		DIALOG=off
-		MORE=cat
+		MORECMD=cat
 		if [ "$DEFAULT_ANSWER" = "" ]; then
 			DEFAULT_ANSWER=n
 		fi
 	else
-		MORE=more
+		MORECMD=more
 	fi
 	echo 
 }
@@ -202,7 +209,7 @@ with slackpkg.\n"
 # Got the name of a package, without version-arch-release data
 #
 function cutpkg() {
-	echo ${1/.tgz/} | awk -F- 'OFS="-" { 
+	echo ${1/%.t[blxg]z/} | awk -F- 'OFS="-" { 
 				if ( NF > 3 ) { 
 					NF=NF-3
 					print $0 
@@ -219,13 +226,15 @@ function usage() {
 slackpkg - version $VERSION\n\
 \nUsage: \tslackpkg update [gpg]\t\tdownload and update files and 
 \t\t\t\t\tpackage indexes
+\tslackpkg check-updates\t\tcheck if there is any news on
+\t\t\t\t\tSlamd64's ChangeLog.txt
 \tslackpkg install package\tdownload and install packages 
 \tslackpkg upgrade package\tdownload and upgrade packages
 \tslackpkg reinstall package\tsame as install, but for packages 
 \t\t\t\t\talready installed
 \tslackpkg remove package\t\tremove installed packages
 \tslackpkg clean-system\t\tremove all packages which are not 
-\t\t\t\t\tpresent in the official Slackware 
+\t\t\t\t\tpresent in the official Slamd64 
 \t\t\t\t\tpackage set. Good to keep the house
 \t\t\t\t\tin order
 \tslackpkg upgrade-all\t\tsync all packages installed in your 
@@ -233,9 +242,9 @@ slackpkg - version $VERSION\n\
 \t\t\t\t\tis the "correct" way to upgrade all of 
 \t\t\t\t\tyour machine.
 \tslackpkg install-new\t\tinstall packages which are added to
-\t\t\t\t\tthe official Slackware package set.
+\t\t\t\t\tthe official Slamd64 package set.
 \t\t\t\t\tRun this if you are upgrading to another
-\t\t\t\t\tSlackware version or using "current".
+\t\t\t\t\tSlamd64 version or using "current".
 \tslackpkg blacklist\t\tBlacklist a package. Blacklisted
 \t\t\t\t\tpackages cannot be upgraded, installed,
 \t\t\t\t\tor reinstalled by slackpkg
@@ -248,7 +257,7 @@ slackpkg - version $VERSION\n\
 \t\t\t\t\task to user what to do with them.
 \nYou can see more information about slackpkg usage and some examples
 in slackpkg's manpage. You can use partial package names (such as x11
-instead x11-devel, x11-docs, etc), or even Slackware series
+instead x11-devel, x11-docs, etc), or even Slamd64 series
 (such as "n","ap","xap",etc) when searching for packages.
 "
 	cleanup
@@ -256,12 +265,13 @@ instead x11-devel, x11-docs, etc), or even Slackware series
 
 # Verify if the package was corrupted by checking md5sum
 #
-function checkpkg() {
+function checkmd5() {
 	local MD5ORIGINAL
 	local MD5DOWNLOAD
 
-	MD5ORIGINAL=$(grep "/${NAMEPKG}$" ${WORKDIR}/CHECKSUMS.md5| cut -f1 -d \ )
-	MD5DOWNLOAD=$(md5sum ${TEMP}/${1} | cut -f1 -d \ )
+	MD5ORIGINAL=$(	grep -v "/source/" ${CHECKSUMSFILE} |\
+			grep -m1 "/$(basename $1)$" | cut -f1 -d \ )
+	MD5DOWNLOAD=$(md5sum ${1} | cut -f1 -d \ )
 	if [ "$MD5ORIGINAL" = "$MD5DOWNLOAD" ]; then
 		echo 1 
 	else
@@ -270,7 +280,7 @@ function checkpkg() {
 }
 
 function checkgpg() {
-	gpg --verify ${TEMP}/${1}.asc ${TEMP}/${1} 2>/dev/null && echo "1" || echo "0"
+	gpg --verify ${1}.asc ${1} 2>/dev/null && echo "1" || echo "0"
 }
 
 
@@ -307,7 +317,7 @@ function givepriority {
                         checkblacklist
                         if [ "$?" = "1" ]; then
 				NAME=${PKGDATA[1]}
-                                FULLNAME=$(echo "${PKGDATA[5]}")
+                                FULLNAME=$(echo "${PKGDATA[5]}.${PKGDATA[7]}")
 			else
 				unset PKGDATA
 				unset FULLNAME
@@ -348,7 +358,7 @@ function makelist() {
 		download)
 			for ARGUMENT in $(echo $INPUTLIST); do
 				for i in $(grep -w -- "${ARGUMENT}" ${WORKDIR}/pkglist | cut -f2 -d\  | sort -u); do
-					LIST="$LIST $(grep " ${i} " ${WORKDIR}/pkglist | cut -f6 -d \ )"
+					LIST="$LIST $(grep " ${i} " ${WORKDIR}/pkglist | cut -f6,8 -d\  --output-delimiter=.)"
 				done
 				LIST="$(echo -e $LIST | sort -u)"
 			done
@@ -371,7 +381,7 @@ function makelist() {
 						'upgrade')
 							VRFY=$(cut -f6 -d\  ${TMPDIR}/tmplist | \
 							      grep -x "${NAME}-[^-]\+-\(noarch_slamd64\|fw_slamd64\|${ARCH}\)-[^-]\+")
-							[ "${FULLNAME}" != "${VRFY}" ]  && \
+							[ "${FULLNAME/%.t[blxg]z/}" != "${VRFY}" ]  && \
 										[ "${VRFY}" ] && \
 								LIST="$LIST ${FULLNAME}"
 						;;
@@ -380,7 +390,7 @@ function makelist() {
 								LIST="$LIST ${FULLNAME}"
 						;;
 						'reinstall')
-							grep -q " ${FULLNAME} " ${TMPDIR}/tmplist && \
+							grep -q " ${FULLNAME/%.t[blxg]z} " ${TMPDIR}/tmplist && \
 								LIST="$LIST ${FULLNAME}"
 						;;
 					esac
@@ -415,7 +425,7 @@ function makelist() {
 				[ ! "$FULLNAME" ] && continue
 
 				VRFY=$(cut -f6 -d\  ${TMPDIR}/tmplist | grep -x "${NAME}-[^-]\+-\(noarch_slamd64\|fw_slamd64\|${ARCH}\)-[^-]\+")
-				[ "${FULLNAME}" != "${VRFY}" ]  && \
+				[ "${FULLNAME/%.t[blxg]z}" != "${VRFY}" ]  && \
 							[ "${VRFY}" ] && \
 					LIST="$LIST ${FULLNAME}"
 			done
@@ -464,7 +474,7 @@ function showlist() {
 	local ANSWER
 	local i
 
-	for i in $1; do echo $i; done | $MORE 
+	for i in $1; do echo $i; done | $MORECMD
 	echo
 	countpkg "$1"
 	echo -e "Do you wish to $2 selected packages (Y/n)? \c"
@@ -495,32 +505,39 @@ function getpkg() {
 	local PKGNAME
 	local FULLPATH
 	local NAMEPKG
+	local CACHEPATH
 
-	PKGNAME=( $(grep -w -m 1 -- "$1" ${WORKDIR}/pkglist) )
-	NAMEPKG=${PKGNAME[5]}
+	PKGNAME=( $(grep -w -m 1 -- "${1/%.t[blxg]z/}" ${WORKDIR}/pkglist) )
+	NAMEPKG=${PKGNAME[5]}.${PKGNAME[7]}
 	FULLPATH=${PKGNAME[6]}
+	CACHEPATH=${TEMP}/${FULLPATH}
 
-	if ! [ -e ${TEMP}/${NAMEPKG} ]; then
+	# Create destination dir if it isn't there
+	if ! [ -d $CACHEPATH ]; then
+		mkdir -p $CACHEPATH
+	fi
+
+	if ! [ -e ${CACHEPATH}/${NAMEPKG} ]; then
 		echo -e "\nPackage: $1"
 		# Check if the mirror are local, if is local, copy files 
-		# to TEMP else, download packages from remote host and 
-		# put then in TEMP
+		# to CACHEPATH else, download packages from remote host and 
+		# put then in CACHEPATH
 		#
 		if [ "${LOCAL}" = "1" ]; then 
                 	echo -e "\tCopying $NAMEPKG..."
-			cp ${SOURCE}${FULLPATH}/${NAMEPKG} ${TEMP}
+			cp ${SOURCE}${FULLPATH}/${NAMEPKG} ${CACHEPATH}
 			if [ "$CHECKGPG" = "on" ]; then
-				cp ${SOURCE}${FULLPATH}/${NAMEPKG}.asc ${TEMP}
+				cp ${SOURCE}${FULLPATH}/${NAMEPKG}.asc ${CACHEPATH}
 			fi
 		else
                 	echo -e "\tDownloading $NAMEPKG..."
-			wget ${WGETFLAGS} -P ${TEMP} -nd ${SOURCE}${FULLPATH}/${NAMEPKG}
+			wget ${WGETFLAGS} -P ${CACHEPATH} -nd ${SOURCE}${FULLPATH}/${NAMEPKG}
 			if [ "$CHECKGPG" = "on" ]; then
-				wget ${WGETFLAGS} -P ${TEMP} -nd ${SOURCE}${FULLPATH}/${NAMEPKG}.asc
+				wget ${WGETFLAGS} -P ${CACHEPATH} -nd ${SOURCE}${FULLPATH}/${NAMEPKG}.asc
 			fi
 		fi
 
-		if ! [ -e $TEMP/$1 ]; then
+		if ! [ -e $CACHEPATH/$1 ]; then
 			ERROR="Not found"
 			ISOK="0"
 			echo -e "${NAMEPKG}:\t$ERROR" >> $TMPDIR/error.log
@@ -533,10 +550,18 @@ function getpkg() {
 	# packages md5sum to detect if they are corrupt or not
 	#
 	if [ "$CHECKPKG" = "on" ] && [ "$ISOK" = "1" ]; then
-		ISOK=$(checkpkg $1)
+		ISOK=$(checkmd5 ${CACHEPATH}/$1)
 		if [ "$ISOK" = "0" ]; then 
 			ERROR="md5sum"
 			echo -e "${NAMEPKG}:\t$ERROR" >> $TMPDIR/error.log
+		fi
+		if [ "$CHECKGPG" = "on" ] && [ "$ISOK" = "1" ]; then
+			ISOK=$(checkmd5 ${CACHEPATH}/$1.asc)
+			if [ "$ISOK" = "0" ]; then 
+				ERROR="md5sum"
+				echo -e "${NAMEPKG}.asc:\t$ERROR" >> \
+							$TMPDIR/error.log
+			fi
 		fi
 	fi
 
@@ -544,7 +569,7 @@ function getpkg() {
 	# disable GPG checking in /etc/slackpkg/slackpkg.conf
 	#
 	if [ "$CHECKGPG" = "on" ] && [ "$ISOK" = "1" ]; then
-		ISOK=$(checkgpg $1)
+		ISOK=$(checkgpg ${CACHEPATH}/$1)
 		if [ "$ISOK" = "0" ]; then 
 			ERROR="gpg"
 			echo -e "${NAMEPKG}:\t$ERROR" >> $TMPDIR/error.log
@@ -554,18 +579,18 @@ function getpkg() {
 	if [ "$ISOK" = "1" ]; then
 		case $2 in
 			installpkg)
-				echo -e "\tInstalling ${1/.tgz/}..."
+				echo -e "\tInstalling ${1/%.t[blxg]z/}..."
 			;;
 			upgradepkg)
-				echo -e "\tUpgrading ${1/.tgz/}..."
+				echo -e "\tUpgrading ${1/%.t[blxg]z/}..."
 			;;
 			*)
 				echo -e "\c"
 			;;
 		esac	
-		( cd $TEMP && $2 $1 )
+		( cd $CACHEPATH && $2 $1 )
 	else 
-		rm $TEMP/$1 2>/dev/null
+		rm $CACHEPATH/$1 2>/dev/null
 		echo -e "\tERROR - Package not installed! $ERROR error!" 
 	fi
 
@@ -573,13 +598,13 @@ function getpkg() {
 	# after installed/upgraded/reinstalled
 	#
 	if [ "$DELALL" = "on" ]; then
-		rm $TEMP/$1 $TEMP/${1}.asc 2>/dev/null
+		rm $CACHEPATH/$1 $CACHEPATH/${1}.asc 2>/dev/null
 	fi		
 }
 
 # Main logic to download and format package list, md5 etc.
 #
-function updatefilelists()
+function checkchangelog()
 {
 	if ! [ -e ${WORKDIR}/ChangeLog.txt ]; then
 		touch ${WORKDIR}/ChangeLog.txt
@@ -599,6 +624,15 @@ Please, check your mirror and try again."
 	fi
 
 	if diff --brief ${WORKDIR}/ChangeLog.txt $TMPDIR/ChangeLog.txt ; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+function updatefilelists()
+{
+	if checkchangelog ; then
 		echo -e "\
 \n\t\tNo changes in ChangeLog.txt between your last update and now.\n\
 \t\tDo you really want to download all other files (y/N)? \c"
@@ -622,15 +656,88 @@ Please, check your mirror and try again."
 			DIRS="$DIRS $i"
 	done
 
+	ISOK="1"
+	echo -e "\t\tChecksums"
+	getfile CHECKSUMS.md5 ${TMPDIR}/CHECKSUMS.md5
+	getfile CHECKSUMS.md5.asc ${TMPDIR}/CHECKSUMS.md5.asc
+	if ! [ -e "${TMPDIR}/CHECKSUMS.md5" ]; then
+		echo -e "\
+\n\t\tWARNING: Your mirror appears incomplete and is missing the\n\
+\t\t         CHECKSUMS.md5 file. We recommend you change your mirror\n\
+\t\t         so that package integrity can be verified against \n\
+\t\t         CHECKSUMS.md5.\n"
+		sleep 10
+	else
+		if [ "$CHECKGPG" = "on" ]; then
+			ISOK=$(checkgpg ${TMPDIR}/CHECKSUMS.md5)
+			if [ "$ISOK" = "0" ]; then 
+				rm $TMPDIR/CHECKSUMS.md5
+				rm $TMPDIR/CHECKSUMS.md5.asc
+				echo -e "\
+\n\t\tERROR: Verification of the  gpg signature on CHECKSUMS.md5\n\
+\t\t       failed! This could mean that the file is out of date\n\
+\t\t       or has been tampered with.\n"
+				cleanup
+			fi
+		else
+			echo -e "\
+\n\t\tWARNING: Without CHECKGPG, we can't check if this file is\n\
+\t\t         signed by:\n\
+\n\t\t         $SLACKKEY.\n\
+\n\t\t         Enabling CHECKGPG is highly recommended for best\n\
+\t\t         security.\n"
+				sleep 10
+		fi
+	fi
+
+	ISOK="1"
 	echo -e "\t\tPackage List"
 	getfile FILELIST.TXT $TMPDIR/FILELIST.TXT
-
 	if [ "$CHECKPKG" = "on" ]; then
-		echo -e "\t\tChecksums"
-		getfile CHECKSUMS.md5 ${TMPDIR}/CHECKSUMS.md5
+		CHECKSUMSFILE=$TMPDIR/CHECKSUMS.md5
+		ISOK=$(checkmd5 $TMPDIR/FILELIST.TXT)
 	fi
-	cp $TMPDIR/CHECKSUMS.md5 $WORKDIR/CHECKSUMS.md5
-		
+	if [ "$ISOK" = "1" ]; then 
+		if ! [ -e $WORKDIR/LASTUPDATE ]; then
+			echo "742868196" > $WORKDIR/LASTUPDATE
+		fi
+		LASTUPDATE=$(cat $WORKDIR/LASTUPDATE)
+		ACTUALDATE=$(date -d "$(head -1 $TMPDIR/FILELIST.TXT)" "+%s")
+		if [ $ACTUALDATE -lt $LASTUPDATE ]; then
+			echo -e "\
+\n\t\tFILELIST.TXT seems to be older than the last one.\n\
+\t\tDo you really want to continue (y/N)? \c"
+			answer
+			if [ "$ANSWER" != "Y" ] && [ "$ANSWER" != "y" ]; then
+				cleanup
+			fi
+			echo
+		fi
+		echo $ACTUALDATE > $WORKDIR/LASTUPDATE
+	else
+		rm $TMPDIR/FILELIST.TXT
+	fi
+	
+	if [ -e $TMPDIR/CHECKSUMS.md5 ]; then
+		FILELIST="$TMPDIR/CHECKSUMS.md5"
+	elif [ -e $TMPDIR/FILELIST.TXT ]; then
+		if [ "$ISOK" = "0" ]; then
+			echo -e "\
+\n\t\tERROR: CHECKSUMS.md5 signature doesn't match!\n\
+\t\t       We strongly recommend that you change your mirror\n\
+\t\t       to prevent security problems.\n"
+			cleanup
+		fi
+		sleep 10
+	  	FILELIST="$TMPDIR/FILELIST.TXT"
+	else
+		echo -e "\
+\n\t\tERROR: No CHECKSUMS.md5 and no FILELIST.TXT.\n\
+\t\t       We strongly recommend that you change your mirror\n\
+\t\t       to prevent security problems.\n"
+		cleanup
+	fi 
+
 	# Download all PACKAGES.TXT files
 	# 
 	echo -e "\t\tPackage descriptions"
@@ -641,11 +748,18 @@ Please, check your mirror and try again."
 	# Format FILELIST.TXT
 	#
 	echo -e "\tFormatting lists to slackpkg style..."
-	echo -e "\t\tPackage List"
-	grep "\.tgz" $TMPDIR/FILELIST.TXT| \
-		awk -f /usr/libexec/slackpkg/pkglist.awk | \
+	echo -e "\t\tPackage List: using $( basename $FILELIST ) as source"
+	grep "\.t[blxg]z$" $FILELIST| \
+		awk -f /usr/libexec/slackpkg/pkglist.awk |\
 		sed -e 's/^M//g' > ${TMPDIR}/pkglist
 	cp ${TMPDIR}/pkglist ${WORKDIR}/pkglist		
+
+	# Create the slamd64 tree under TEMP directory
+	for i in $( cut -f7 -d\  ${WORKDIR}/pkglist | sort -u ) ; do
+	  if ! [ -d ${TEMP}/${i} ]; then
+	    mkdir -p ${TEMP}/${i}
+	  fi
+	done
 
 	# Format MANIFEST
 	#
@@ -671,6 +785,15 @@ Please, check your mirror and try again."
 		cat $TMPDIR/${i}-PACKAGES.TXT >> $TMPDIR/PACKAGES.TXT
 	done
 	cp $TMPDIR/PACKAGES.TXT ${WORKDIR}/PACKAGES.TXT
+
+	if [ -e $TMPDIR/CHECKSUMS.md5 ]; then
+		cp $TMPDIR/CHECKSUMS.md5 $WORKDIR/CHECKSUMS.md5 2>/dev/null
+	fi
+
+	if [ -e $TMPDIR/CHECKSUMS.md5.asc ]; then
+		cp $TMPDIR/CHECKSUMS.md5.asc \
+			$WORKDIR/CHECKSUMS.md5.asc 2>/dev/null
+	fi
 }
 
 function sanity_check() {

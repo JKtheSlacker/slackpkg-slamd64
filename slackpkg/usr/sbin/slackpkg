@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# SlackPkg - An Automated packaging tool for Slackware Linux
-# Copyright (C) 2003,2004,2005,2006,2007 Roberto F. Batista, Evaldo Gardenali
+# SlackPkg - An Automated packaging tool for Slamd64 Linux
+# Copyright (C) 2003-2009 Roberto F. Batista, Evaldo Gardenali
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@
 # Modified for Slamd64 by
 # JK Wood (aka jkwood) joshuakwood@gmail.com
 
+
 #========================================================================
 #
 # LOAD CONFIGURATIONS
@@ -33,7 +34,7 @@
 # CONF = configuration directory
 # SOURCE = A mirror of Slamd64. Source can be sett by editing $CONF/mirrors
 #
-VERSION=2.70.5
+VERSION=2.71.2
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
 SLACKWARE_VERSION=$(cat /etc/slamd64-version | cut -f2 -d\ )
 SLACKKEY="Frederick Emmott <mail@fredemmott.co.uk>"
@@ -42,12 +43,14 @@ SOURCE=$(grep -e "^\([a-z]\)" $CONF/mirrors)
 . $CONF/slackpkg.conf
 ARCH=${ARCH:-x86_64_slamd64}
 LOCAL=0
+CHECKSUMSFILE=$WORKDIR/CHECKSUMS.md5
 KERNELMD5=$(md5sum /boot/vmlinuz 2>/dev/null)
 TMPDIR=$(mktemp -p /tmp -d slackpkg.XXXXXX 2>/dev/null || echo "FAILED")
 if [ "$TMPDIR" = "FAILED" ]; then
 	TMPDIR="/tmp/slackpkg.${RANDOM}"
 	mkdir -m 700 $TMPDIR || TMPDIR="FAILED"
 fi
+echo "$0 $VERSION - Slamd64 Linux $SLACKWARE_VERSION" > $TMPDIR/timestamp
 ERROR=""
 
 #
@@ -129,6 +132,14 @@ while [ -n "$1" ] ; do
       BATCH=off
       shift
     ;;
+    -only_new_dotnew=on)
+      ONLY_NEW_DOTNEW=on
+      shift
+    ;;
+    -only_new_dotnew=off)
+      ONLY_NEW_DOTNEW=off
+      shift
+    ;;
     -default_answer=y|-default_answer=yes)
       DEFAULT_ANSWER=y
       shift
@@ -173,7 +184,7 @@ while [ -n "$1" ] ; do
         shift
       fi
     ;;
-    install-new|upgrade-all|clean-system|new-config)
+    install-new|upgrade-all|clean-system|new-config|check-updates)
       CMD=$1
       shift
       if [ -n "$1" ]; then
@@ -220,6 +231,13 @@ done
 # A *BIG* case with all slackpkg commands -:)
 #
 case "$CMD" in
+	"check-updates")
+		if checkchangelog 1>/dev/null 2>/dev/null ; then
+			echo "No news is good news"
+		else
+			echo "News on ChangeLog.txt"
+		fi
+		;;
 	"update")
 		# If you are using "slackpkg update gpg" OR the system
 		# doesn't have Slamd64 GPG key, download and install
@@ -327,7 +345,7 @@ case "$CMD" in
 				done
 				DELALL="$OLDDEL"
 			fi
-			for i in glibc-solibs readline pkgtools sed; do
+			for i in findutils glibc-solibs readline pkgtools sed; do
 				FOUND=""
 				FOUND=$(echo $SHOWLIST | tr -s ' ' "\n" | grep "${i}-[0-9]")
 				if [ "$FOUND" != "" ]; then 
@@ -403,7 +421,7 @@ The list below shows all packages with the selected pattern.\n"
 			BASENAME="$(cutpkg ${i})"
 
 			# RAWNAME is Latest available version  
-			RAWNAME="$(basename ${i} .tgz)"
+			RAWNAME="${i/%.t[blxg]z/}"
 
 			# Default is uninstalled
 			STATUS="uninstalled"
@@ -463,7 +481,8 @@ esac
 # That options don't change configurations files and, if 
 # someone remove the kernel, i hope he knows what is doing.
 #
-for i in remove search update blacklist info clean-system download; do
+for i in check-updates remove search update blacklist info \
+	 clean-system download; do
 	if [ "$CMD" = "$i" ]; then
 		POSTINST=off
 	fi

@@ -2,7 +2,7 @@ BEGIN {
   starting = 1
 }
 
-/^\|\|[[:blank:]]+Package:[[:blank:]]+.*-[[:alnum:]_]+-[[:digit:]]+\.tgz$/ {
+/^\|\|[[:blank:]]+Package:[[:blank:]]+.*-[[:alnum:]_]+-[[:alnum:]_.]+\.t[blxg]z$/ {
   if( starting == 1 )
     starting = 0
   else
@@ -11,7 +11,7 @@ BEGIN {
   show = 1
 }
 
-/^\|\|[[:blank:]]+Package:[[:blank:]]+/ && !/tgz/ {
+/^\|\|[[:blank:]]+Package:[[:blank:]]+/ && !/t[blxg]z/ {
 	show = 0
 }
 

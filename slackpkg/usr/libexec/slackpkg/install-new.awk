@@ -6,7 +6,9 @@
 	FULLPACK=$NF
 	FS="-" ; OFS="-"
 	$0=FULLPACK
-	NF=NF-3
+	if ( NF > 3 ) then
+		NF=NF-3
+	fi
 	FS=fs
 	CONTINUE=no
 	print $0
@@ -20,7 +22,9 @@
 	FULLPACK=$NF
 	FS="-" ; OFS="-"
 	$0=FULLPACK
-	NF=NF-3
+	if ( NF > 3 ) then
+		NF=NF-3
+	fi
 	FS=fs
 	CONTINUE=yes
 	NAME=$0

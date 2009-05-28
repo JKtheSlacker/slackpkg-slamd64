@@ -19,7 +19,7 @@
 set -e
 
 mkdir -p slackpkg
-tar xvzf slackpkg-2.70.5-noarch-1.tgz -C slackpkg
+tar xvzf slackpkg-2.71.2-noarch-1.tgz -C slackpkg
 cd slackpkg
 PKG=$(pwd)
 
@@ -230,12 +230,8 @@ cat << EOF > mirrors.new
 EOF
 
 # Next few lines will deal with slackpkg.conf
-sed -i '1,/ARCH=/ { s/ARCH/#ARCH/ }' slackpkg.conf.new
-sed -i s/Slamd64\ and// slackpkg.conf.new
-sed -i '/#ARCH=x86_64/ a\
-# x86_64_slamd64 (Slamd64)\
-ARCH=x86_64_slamd64
-' slackpkg.conf.new
+sed -i '1,/ARCH=/ { s/ARCH/#ARCH/ } ' slackpkg.conf.new
+sed -i s/"#ARCH=x86\["/"ARCH=x86\["/ slackpkg.conf.new
 
 # Next we move on to core-functions.sh
 cd $PKG/usr/libexec/slackpkg/
@@ -268,5 +264,5 @@ sed -i s/fw/fw_slamd64/g slackpkg
 
 # And we're done!  Thanks for playing!
 cd $PKG
-/sbin/makepkg -l y -c n /tmp/slackpkg-2.70.5-noarch_slamd64-2.tgz
+/sbin/makepkg -l y -c n /tmp/slackpkg-2.71.2-noarch_slamd64-1.tgz
 
